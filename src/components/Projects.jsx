@@ -125,7 +125,7 @@ const Projects = () => {
       </section>
 
       {/* --- TLAČÍTKO DO ARCHIVU --- */}
-      <div className="w-full bg-background py-24 flex justify-center items-center relative z-10 border-t border-white/5">
+      <div className="w-full bg-background py-24 flex justify-center items-center relative z-10 ">
         <Link
           to="/archiv"
           className="group relative inline-flex items-center gap-4 px-8 py-4 bg-transparent border border-white/20 rounded-full hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300"
