@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stchstudio.cz/sitemap.xml
