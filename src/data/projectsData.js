@@ -2,6 +2,7 @@
 import Img1 from "../assets/jmlmont.png";
 import Img2 from "../assets/kryptoterminal.png";
 import Img3 from "../assets/aurawellnes.png";
+import Img4 from "../assets/octagontrebic.png";
 
 
 export const projects = [
@@ -34,20 +35,12 @@ export const projects = [
     },
   {
     id: 4,
-    title: "Advokátní kancelář",
-    category: "Weby",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    description: "Seriózní firemní web pro právní firmu s rezervačním systémem.",
-    year: "2023",
-    link: "#"
+    title: "Octagon Třebíč",
+    category: "Web",
+    image: Img4,
+    description: "Ukázka webu pro místní posilovnu.",
+    year: "2026",
+    link: "https://stachradek-octagon.netlify.app/"
   },
-  {
-    id: 5,
-    title: "Restaurace Pod Věží",
-    category: "Weby",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-    description: "Jednoduchý a rychlý web s online jídelním lístkem a galerií.",
-    year: "2023",
-    link: "#"
-  },
+  
 ];
