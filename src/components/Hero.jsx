@@ -1,18 +1,33 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowDownRight, ChevronRight } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
 
+const rotatingPhrases = ["webu", "inovací", "vaší značky", "internetu"];
+
+const longestPhrase = rotatingPhrases.reduce((longest, current) =>
+  current.length > longest.length ? current : longest,
+);
+
 const Hero = () => {
   const container = useRef();
+  const [activePhraseIndex, setActivePhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActivePhraseIndex((current) => (current + 1) % rotatingPhrases.length);
+    }, 2200);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   useGSAP(
     () => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      tl.from(".hero-title span", {
+      tl.from(".hero-line", {
         y: 120,
         skewY: 7,
         stagger: 0.15,
@@ -71,13 +86,34 @@ const Hero = () => {
         {/* Nadpis */}
         <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
           <div className="overflow-hidden">
-            <span className="inline-block py-1 text-white">
-              Budoucnost{" "}
-              <span className="animated-gradient-text">webu</span>
+            <span className="hero-line hero-rotating-line" aria-live="polite">
+              <span className="hero-rotating-line-sizer" aria-hidden="true">
+                <span>Budoucnost </span>
+                <span>{longestPhrase}</span>
+              </span>
+              <span className="hero-rotating-line-content">
+                <span className="hero-static-slot" aria-hidden="true">
+                  <span className="hero-static-sizer">Budoucnost</span>
+                  <span
+                    key={`static-${activePhraseIndex}`}
+                    className="hero-static-word text-white"
+                  >
+                    Budoucnost
+                  </span>
+                </span>
+                <span
+                  key={rotatingPhrases[activePhraseIndex]}
+                  className="animated-gradient-text hero-rotating-word"
+                >
+                  {rotatingPhrases[activePhraseIndex]}
+                </span>
+              </span>
             </span>
           </div>
           <div className="overflow-hidden">
-            <span className="inline-block py-1">začíná právě teď.</span>
+            <span className="hero-line inline-block py-1">
+              začíná právě teď.
+            </span>
           </div>
         </h1>
 
