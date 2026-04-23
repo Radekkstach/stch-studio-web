@@ -10,12 +10,16 @@
     background-color: #0f0f0f;
     /* TOTO OPRAVUJE ŠÍŘKU NA MOBILU: */
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   html {
     width: 100%;
     /* TOTO JE NUTNÉ PRO LENIS I PRO MOBIL: */
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -25,6 +29,15 @@
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-indigo-400;
+  }
+  .animated-gradient-text {
+    background-image: linear-gradient(120deg, #60a5fa, #818cf8, #a855f7, #60a5fa);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-float 5s ease-in-out infinite;
   }
 }
 
@@ -48,4 +61,16 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+@keyframes gradient-float {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

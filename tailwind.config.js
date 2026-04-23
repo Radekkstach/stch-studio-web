@@ -22,6 +22,11 @@ export default {
         'hero-gradient': 'radial-gradient(ellipse at top, #1e1b4b 0%, #030712 50%)',
         'glass': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%)',
       },
+      keyframes: {
+      shimmer: {
+        "100%": { transform: "translateX(100%)" },
+      },
+    },
     },
   },
   plugins: [],

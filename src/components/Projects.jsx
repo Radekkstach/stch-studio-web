@@ -61,16 +61,11 @@ const Projects = () => {
       <section
         id="Projekty"
         ref={sectionRef}
-        className="bg-background overflow-hidden relative z-10"
+        className="bg-background overflow-x-hidden relative z-10"
       >
         <div className="md:h-screen md:flex md:items-center py-20 md:py-0">
           <div className="container mx-auto px-6 md:px-0 md:w-full">
             {/* Nadpis sekce */}
-            <div className="md:absolute md:top-12 md:left-12 md:z-10 mb-12 md:mb-0 px-6 md:px-0">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">
-                Vybraná práce.
-              </h2>
-            </div>
 
             {/* Slider karet */}
             <div

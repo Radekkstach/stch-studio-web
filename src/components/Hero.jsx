@@ -71,8 +71,9 @@ const Hero = () => {
         {/* Nadpis */}
         <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
           <div className="overflow-hidden">
-            <span className="inline-block text-gradient py-1">
-              Budoucnost webu
+            <span className="inline-block py-1 text-white">
+              Budoucnost{" "}
+              <span className="animated-gradient-text">webu</span>
             </span>
           </div>
           <div className="overflow-hidden">
@@ -107,10 +108,6 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="hero-fade absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 pointer-events-none">
-        <p className="text-[10px] uppercase tracking-[0.2em]">Scrolluj</p>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
-      </div>
     </section>
   );
 };

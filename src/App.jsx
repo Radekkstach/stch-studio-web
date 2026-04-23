@@ -22,27 +22,29 @@ gsap.registerPlugin(ScrollTrigger);
 // Musí stát samostatně, aby kód byl čistý.
 const Home = () => {
   return (
-    <div className="bg-background min-h-screen text-white selection:bg-indigo-500/30 selection:text-indigo-200">
-      <Navbar />
-      <main>
-        <div id="hero">
-          <Hero />
-        </div>
-        <div id="Projekty">
-          <Projects />
-        </div>
-        <div id="Sluzby">
-          <Services />
-        </div>
-        <div id="Studio">
-          <Studio />
-        </div>
-        <div id="Kontakt">
-          <Contact />
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <main className="overflow-x-hidden w-full relative min-h-screen bg-background">
+      <div className="bg-background min-h-screen text-white selection:bg-indigo-500/30 selection:text-indigo-200">
+        <Navbar />
+        <main>
+          <div id="hero">
+            <Hero />
+          </div>
+          <div id="Projekty">
+            <Projects />
+          </div>
+          <div id="Sluzby">
+            <Services />
+          </div>
+          <div id="Studio">
+            <Studio />
+          </div>
+          <div id="Kontakt">
+            <Contact />
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </main>
   );
 };
 

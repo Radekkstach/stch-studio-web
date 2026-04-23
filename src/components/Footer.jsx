@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* 1. Sloupec: Logo */}
           <div className="space-y-6">
-            <a href="#" className="block w-fit">
+            <a href="#hero" className="block w-fit">
               <img
                 src={logoWhite}
                 alt="STCH Studio Logo"
@@ -152,12 +152,12 @@ const Footer = () => {
               </button>
             </div>
 
-            <button
-              onClick={scrollToTop}
+            <a
+              href="#hero"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-indigo-500 hover:border-indigo-500 hover:-translate-y-1 transition-all duration-300"
             >
               <ArrowUp size={16} />
-            </button>
+            </a>
           </div>
         </div>
       </div>
