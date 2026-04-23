@@ -1,8 +1,8 @@
 // src/data/projectsData.js
-import Img1 from "../assets/jmlmont.png";
-import Img2 from "../assets/kryptoterminal.png";
-import Img3 from "../assets/aurawellnes.png";
-import Img4 from "../assets/octagontrebic.png";
+import Img1 from "../assets/jmlmont.webp";
+import Img2 from "../assets/kryptoterminal.webp";
+import Img3 from "../assets/aurawellnes.webp";
+import Img4 from "../assets/octagontrebic.webp";
 
 
 export const projects = [
@@ -10,7 +10,7 @@ export const projects = [
         id:1,
       title: "JML Mont s.r.o",
       category: "Web",
-      description: "Docílená zvýšená poptávka o 40 %.",
+      description: "Moderní a přehledná prezentace s plnou podporou tří jazyků (CZ/EN/DE).",
       image: Img1,
       year: "2025",
       link: "https://jmlmont.eu", // Zde si pak doplníš reálnou URL
@@ -38,9 +38,19 @@ export const projects = [
     title: "Octagon Třebíč",
     category: "Web",
     image: Img4,
-    description: "Ukázka webu pro místní posilovnu.",
+    description: "Dynamickoá a vizuálně úderná stránka, která buduje silnou osobní značku a láká návštěvníky.",
     year: "2026",
     link: "https://stachradek-octagon.netlify.app/"
   },
+  {
+    id: 5,
+    title: "Bar Praha",
+    category: "Web",
+    image: Img4,
+    description: "Svižný a přehledný web vytvořený na míru pro bar ve Znojmě, optimalizovaný pro všechna mobilní zařízení.",
+    year: "2026",
+    link: "https://stachradek-octagon.netlify.app/"
+  },
+
   
 ];

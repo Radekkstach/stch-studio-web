@@ -91,6 +91,9 @@
     animation: hero-static-word-focus 0.45s ease-out;
     will-change: filter, opacity;
   }
+  .hero-line {
+    padding-bottom: 0.08em;
+  }
 }
 
 /* LENIS KONFIGURACE (Nutná pro správné fungování) */
@@ -173,6 +176,10 @@ html.lenis body {
     white-space: normal;
     column-gap: 0.18em;
     row-gap: 0.04em;
+  }
+
+  .hero-line {
+    padding-bottom: 0.14em;
   }
 
   .hero-static-slot {

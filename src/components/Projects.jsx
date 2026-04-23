@@ -91,8 +91,11 @@ const Projects = () => {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"
                       />
+
                       <div className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-20">
                         <ArrowUpRight size={24} />
                       </div>

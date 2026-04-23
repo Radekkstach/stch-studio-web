@@ -8,7 +8,7 @@ import {
   MapPin,
   X,
 } from "lucide-react";
-import logoWhite from "../assets/logo2.png";
+import logoWhite from "../assets/logo2.svg";
 
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
