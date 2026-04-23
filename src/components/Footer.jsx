@@ -8,13 +8,11 @@ import {
   MapPin,
   X,
 } from "lucide-react";
-// Ujisti se, že cesta k logu sedí
 import logoWhite from "../assets/logo2.png";
 
 const Footer = () => {
-  // --- STAV PRO MODAL OKNO ---
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("gdpr"); // 'gdpr' nebo 'cookies'
+  const [modalContent, setModalContent] = useState("gdpr");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -26,219 +24,211 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black pt-24 pb-8 border-t border-white/10 relative overflow-hidden">
-      {/* --- OBŘÍ TEXT NA POZADÍ --- */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none opacity-[0.03]">
-        <h1 className="text-[18vw] font-bold text-white leading-none tracking-tighter">
-          STCH STUDIO
-        </h1>
+    <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-8">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 left-1/2 h-56 w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[120px]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* --- GRID LAYOUT --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
-          {/* 1. Sloupec: Logo */}
-          <div className="space-y-6">
-            <a href="#hero" className="block w-fit">
-              <img
-                src={logoWhite}
-                alt="STCH Studio Logo"
-                className="h-10 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
-              />
-            </a>
-            <p className="text-muted text-sm leading-relaxed max-w-xs">
-              Digitální studio zaměřené na tvorbu prémiových webů a aplikací,
-              které pomáhají firmám růst.
-            </p>
-            <div className="flex gap-4 pt-2">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/radek-stach/"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/stach.radek/"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
-              >
-                <Instagram size={18} />
-              </a>
-            </div>
-          </div>
+      <div className="container relative z-10 mx-auto px-6">
+        <div className="rounded-[32px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-sm md:px-10 md:py-12">
+          <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl space-y-6">
+                <a href="#hero" className="block w-fit">
+                  <img
+                    src={logoWhite}
+                    alt="STCH Studio Logo"
+                    className="h-10 w-auto object-contain opacity-95"
+                  />
+                </a>
 
-          {/* 2. Sloupec: Menu */}
-          <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Menu</h4>
-            <ul className="space-y-4 text-sm">
-              {["Služby", "Projekty", "O Studiu", "Kontakt"].map((item) => (
-                <li key={item}>
+                <div className="space-y-4">
+                  <p className="text-[0.7rem] uppercase tracking-[0.32em] text-indigo-300/80">
+                    STCH Studio
+                  </p>
+                  <h2 className="text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+                    Tvoříme weby, které působí čistě, rychle a moderně.
+                  </h2>
+                  <p className="max-w-xl text-sm leading-relaxed text-muted md:text-base">
+                    Design, vývoj a digitální prezentace pro značky, které
+                    chtějí zanechat silný první dojem.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-5 lg:items-end">
+                <a
+                  href="#Kontakt"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-indigo-400 hover:text-white"
+                >
+                  Nezavazna konzultace
+                </a>
+
+                <div className="flex gap-3">
                   <a
-                    href={`#${item}`}
-                    className="text-muted hover:text-indigo-400 hover:translate-x-2 transition-all duration-300 inline-block"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/radek-stach/"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white hover:text-black"
                   >
-                    {item}
+                    <Linkedin size={18} />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 3. Sloupec: Kontakt */}
-          <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Kontakt</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3 text-muted">
-                <Mail size={18} className="text-indigo-500 mt-0.5" />
-                <a
-                  href="mailto:info@stchstudio.cz"
-                  className="hover:text-white transition-colors"
-                >
-                  info@stchstudio.cz
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-muted">
-                <Phone size={18} className="text-indigo-500 mt-0.5" />
-                <a
-                  href="tel:+420702002964"
-                  className="hover:text-white transition-colors"
-                >
-                  +420 702 002 964
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-muted">
-                <MapPin size={18} className="text-indigo-500 mt-0.5" />
-                <span>Třebíč, Česká republika</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 4. Sloupec: CTA */}
-          <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Máte projekt?</h4>
-            <p className="text-muted text-sm mb-6">
-              Napište nám a probereme možnosti spolupráce.
-            </p>
-            <a
-              href="#Kontakt"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-black text-sm font-bold rounded-full hover:bg-indigo-400 hover:text-white transition-all duration-300 w-full md:w-auto"
-            >
-              Chci nezávaznou konzultaci
-            </a>
-          </div>
-        </div>
-
-        {/* --- SPODNÍ LIŠTA --- */}
-        <div className="pt-8 border-t border-white/10 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
-          <p className="text-muted text-xs text-center md:text-left">
-            © {new Date().getFullYear()} STCH Studio. Všechna práva vyhrazena.
-          </p>
-
-          <div className="flex items-center gap-6">
-            <div className="flex gap-6 text-xs text-muted">
-              {/* Tlačítka otevírající Modal */}
-              <button
-                onClick={() => openModal("gdpr")}
-                className="hover:text-white transition-colors"
-              >
-                Ochrana osobních údajů (GDPR)
-              </button>
-              <button
-                onClick={() => openModal("cookies")}
-                className="hover:text-white transition-colors"
-              >
-                Cookies
-              </button>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.instagram.com/stchstudio.cz/"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white hover:text-black"
+                  >
+                    <Instagram size={18} />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <a
-              href="#hero"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-indigo-500 hover:border-indigo-500 hover:-translate-y-1 transition-all duration-300"
-            >
-              <ArrowUp size={16} />
-            </a>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <a
+                href="mailto:info@stchstudio.cz"
+                className="group rounded-2xl border border-white/10 bg-white/[0.02] px-5 py-4 transition-colors hover:bg-white/[0.05]"
+              >
+                <div className="mb-2 flex items-center gap-3 text-white">
+                  <Mail size={18} className="text-indigo-400" />
+                  <span className="text-sm font-medium">E-mail</span>
+                </div>
+                <p className="text-sm text-muted transition-colors group-hover:text-white/80">
+                  info@stchstudio.cz
+                </p>
+              </a>
+
+              <a
+                href="tel:+420702002964"
+                className="group rounded-2xl border border-white/10 bg-white/[0.02] px-5 py-4 transition-colors hover:bg-white/[0.05]"
+              >
+                <div className="mb-2 flex items-center gap-3 text-white">
+                  <Phone size={18} className="text-indigo-400" />
+                  <span className="text-sm font-medium">Telefon</span>
+                </div>
+                <p className="text-sm text-muted transition-colors group-hover:text-white/80">
+                  +420 702 002 964
+                </p>
+              </a>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] px-5 py-4">
+                <div className="mb-2 flex items-center gap-3 text-white">
+                  <MapPin size={18} className="text-indigo-400" />
+                  <span className="text-sm font-medium">Lokace</span>
+                </div>
+                <p className="text-sm text-muted">Třebíč, Česká republika</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+              <p className="text-center text-xs text-muted md:text-left">
+                © {new Date().getFullYear()} STCH Studio. Vsechna prava
+                vyhrazena.
+              </p>
+
+              <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
+                <div className="flex gap-6 text-xs text-muted">
+                  <button
+                    onClick={() => openModal("gdpr")}
+                    className="transition-colors hover:text-white"
+                  >
+                    Ochrana osobnich udaju
+                  </button>
+                  <button
+                    onClick={() => openModal("cookies")}
+                    className="transition-colors hover:text-white"
+                  >
+                    Cookies
+                  </button>
+                </div>
+
+                <button
+                  href="#hero"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500"
+                >
+                  <a href="#hero">
+                    <ArrowUp size={16} />
+                  </a>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* --- MODAL OKNO (Vyskakovací) --- */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#111] border border-white/10 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl relative flex flex-col">
-            {/* Hlavička modalu */}
-            <div className="flex justify-between items-center p-6 border-b border-white/10 sticky top-0 bg-[#111] z-10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="relative flex max-h-[80vh] w-full max-w-2xl flex-col overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/10 bg-[#111] p-6">
               <h3 className="text-xl font-bold text-white">
                 {modalContent === "gdpr"
-                  ? "Ochrana osobních údajů"
-                  : "Používání Cookies"}
+                  ? "Ochrana osobnich udaju"
+                  : "Pouzivani Cookies"}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="text-muted hover:text-white hover:bg-white/10 p-2 rounded-full transition-all"
+                className="rounded-full p-2 text-muted transition-all hover:bg-white/10 hover:text-white"
               >
                 <X size={24} />
               </button>
             </div>
 
-            {/* Obsah modalu */}
-            <div className="p-6 text-muted text-sm space-y-4 leading-relaxed">
+            <div className="space-y-4 p-6 text-sm leading-relaxed text-muted">
               {modalContent === "gdpr" ? (
                 <>
                   <p>
                     <strong>1. Kdo jsme?</strong>
-                    <br /> Správcem vašich osobních údajů je STCH Studio
-                    (fyzická osoba/firma), se sídlem Třebíč - Zámostí, L.
-                    Pokorného 29/42, 67401, IČ: 21738068.
+                    <br /> Spravcem vasich osobnich udaju je STCH Studio, se
+                    sidlem Trebic - Zamosti, L. Pokorneho 29/42, 67401, IC:
+                    21738068.
                   </p>
                   <p>
-                    <strong>2. Co sbíráme?</strong>
-                    <br /> Zpracováváme pouze údaje, které nám sami poskytnete v
-                    kontaktním formuláři (jméno, e-mail, zpráva), abychom vám
-                    mohli odpovědět na vaši poptávku.
+                    <strong>2. Co sbirame?</strong>
+                    <br /> Zpracovavame pouze udaje, ktere nam sami poskytnete v
+                    kontaktnim formulari, abychom vam mohli odpovedet na vasi
+                    poptavku.
                   </p>
                   <p>
-                    <strong>3. Proč to děláme?</strong>
-                    <br /> Účelem zpracování je jednání o smlouvě a zodpovězení
-                    vašich dotazů. Vaše data nikomu neprodáváme ani je
-                    nepředáváme třetím stranám pro marketingové účely.
+                    <strong>3. Proc to delame?</strong>
+                    <br /> Ucelem zpracovani je jednani o smlouve a zodpovezeni
+                    vasich dotazu. Vase data nikomu neprodavame.
                   </p>
                   <p>
-                    <strong>4. Vaše práva</strong>
-                    <br /> Máte právo požadovat výpis dat, která o vás
-                    evidujeme, jejich opravu nebo výmaz. Stačí nám napsat na
-                    info@stchstudio.cz.
+                    <strong>4. Vase prava</strong>
+                    <br /> Mate pravo pozadovat vypis dat, jejich opravu nebo
+                    vymaz. Staci nam napsat na info@stchstudio.cz.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
                     <strong>Co jsou cookies?</strong>
-                    <br /> Cookies jsou malé textové soubory, které se ukládají
-                    do vašeho zařízení při prohlížení webu.
+                    <br /> Cookies jsou male textove soubory, ktere se ukladaji
+                    do vaseho zarizeni pri prohlizeni webu.
                   </p>
                   <p>
-                    <strong>Jaké cookies používáme?</strong>
-                    <br /> Tento web používá pouze nezbytné technické cookies
-                    pro zajištění správného fungování stránky (např. odeslání
-                    formuláře). Nepoužíváme žádné marketingové ani sledovací
-                    cookies třetích stran bez vašeho výslovného souhlasu.
+                    <strong>Jake cookies pouzivame?</strong>
+                    <br /> Tento web pouziva pouze nezbytne technicke cookies
+                    pro zajisteni spravneho fungovani stranky. Nepouzivame
+                    marketingove ani sledovaci cookies tretich stran bez vaseho
+                    souhlasu.
                   </p>
                   <p>
-                    Můžete je v nastavení svého prohlížeče kdykoliv zakázat, ale
-                    některé části webu pak nemusí fungovat správně.
+                    Muzete je v nastaveni sveho prohlizece kdykoliv zakazat, ale
+                    nektere casti webu pak nemusi fungovat spravne.
                   </p>
                 </>
               )}
             </div>
 
-            {/* Patička modalu */}
-            <div className="p-6 border-t border-white/10 bg-[#111]">
+            <div className="border-t border-white/10 bg-[#111] p-6">
               <button
                 onClick={() => setModalOpen(false)}
-                className="w-full py-3 bg-white text-black font-bold rounded-full hover:bg-indigo-400 hover:text-white transition-all"
+                className="w-full rounded-full bg-white py-3 font-bold text-black transition-all hover:bg-indigo-400 hover:text-white"
               >
-                Rozumím
+                Rozumim
               </button>
             </div>
           </div>

@@ -61,9 +61,10 @@ const Projects = () => {
       <section
         id="Projekty"
         ref={sectionRef}
-        className="bg-background overflow-x-hidden relative z-10"
+        className="overflow-x-hidden relative z-10 -mt-24 pt-24"
       >
-        <div className="md:h-screen md:flex md:items-center py-20 md:py-0">
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/70 to-background" />
+        <div className="md:h-screen md:flex md:items-center py-20 md:py-0 relative z-10">
           <div className="container mx-auto px-6 md:px-0 md:w-full">
             {/* Nadpis sekce */}
 

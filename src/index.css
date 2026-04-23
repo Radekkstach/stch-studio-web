@@ -154,3 +154,34 @@ html.lenis body {
     filter: blur(0);
   }
 }
+
+@media (max-width: 640px) {
+  .hero-rotating-line {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-rotating-line-sizer {
+    display: none;
+  }
+
+  .hero-rotating-line-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    white-space: normal;
+    column-gap: 0.18em;
+    row-gap: 0.04em;
+  }
+
+  .hero-static-slot {
+    display: inline-grid;
+  }
+
+  .hero-static-sizer,
+  .hero-static-word,
+  .hero-rotating-word {
+    white-space: normal;
+  }
+}

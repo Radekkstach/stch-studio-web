@@ -68,10 +68,11 @@ const Hero = () => {
   return (
     <section
       ref={container}
-      className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 bg-hero-gradient"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-visible pt-24 pb-20 bg-hero-gradient"
     >
       {/* Glow efekt */}
       <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-indigo-500/20 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
+      <div className="absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[90vw] h-64 md:w-[760px] md:h-80 bg-indigo-500/12 blur-[110px] md:blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
         {/* Badge */}
