@@ -159,6 +159,16 @@ html.lenis body {
 }
 
 @media (max-width: 640px) {
+  .hero-static-word {
+    animation: none;
+  }
+
+  .hero-rotating-word {
+    animation:
+      gradient-float 5s ease-in-out infinite,
+      hero-word-enter-mobile 0.45s ease-out;
+  }
+
   .hero-rotating-line {
     display: block;
     width: 100%;
@@ -190,5 +200,16 @@ html.lenis body {
   .hero-static-word,
   .hero-rotating-word {
     white-space: normal;
+  }
+}
+
+@keyframes hero-word-enter-mobile {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

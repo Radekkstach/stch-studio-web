@@ -82,7 +82,7 @@ const Navbar = () => {
         <div
           className={`nav-anim flex items-center justify-between pointer-events-auto transition-all duration-500 w-full rounded-full border ${
             isScrolled
-              ? "max-w-4xl bg-[#0a0a0a]/80 backdrop-blur-xl border-white/10 px-5 py-3 md:px-8 md:py-4 shadow-2xl"
+              ? "max-w-4xl bg-[#0a0a0a]/80 backdrop-blur-sm md:backdrop-blur-xl border-white/10 px-5 py-3 md:px-8 md:py-4 shadow-2xl"
               : "max-w-7xl bg-transparent border-transparent px-2 py-2 md:px-0 md:py-0"
           }`}
         >
@@ -142,7 +142,7 @@ const Navbar = () => {
       {/* --- MOBILNÍ MENU OVERLAY --- */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-3xl flex flex-col justify-center px-8 transition-all duration-500 overflow-hidden md:hidden ${
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col justify-center px-8 transition-all duration-500 overflow-hidden md:hidden ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none delay-300"

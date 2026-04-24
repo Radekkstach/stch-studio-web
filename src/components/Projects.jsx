@@ -39,17 +39,8 @@ const Projects = () => {
 
       // Mobil: Fade-in animace zespodu
       ctx.add("(max-width: 767px)", () => {
-        const cards = gsap.utils.toArray(".project-card");
-        cards.forEach((card) => {
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-          });
+        gsap.set(".project-card", {
+          clearProps: "all",
         });
       });
     },

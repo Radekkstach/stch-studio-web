@@ -30,6 +30,11 @@ const Studio = () => {
 
   useGSAP(
     () => {
+      if (window.innerWidth < 768) {
+        gsap.set(".pillar-item", { clearProps: "all" });
+        return;
+      }
+
       const cards = gridRef.current.children;
 
       // JEDNODUCHÁ, DECENTNÍ ANIMACE
@@ -65,8 +70,8 @@ const Studio = () => {
       ref={containerRef}
     >
       {/* Záře v pozadí */}
-      <div className="absolute top-40 left-[15%] w-72 h-72 bg-indigo-600/30 blur-[90px] rounded-full pointer-events-none -z-10 opacity-60 mix-blend-screen" />
-      <div className="absolute bottom-32 right-[15%] w-64 h-64 bg-blue-500/50 blur-[90px] rounded-full pointer-events-none -z-10 opacity-50" />
+      <div className="absolute top-40 left-[15%] w-72 h-72 bg-indigo-600/30 blur-[48px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-60 mix-blend-screen" />
+      <div className="absolute bottom-32 right-[15%] w-64 h-64 bg-blue-500/50 blur-[48px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Text */}
@@ -92,7 +97,7 @@ const Studio = () => {
           {pillars.map((item, index) => (
             <div
               key={index}
-              className="pillar-item group p-8 rounded-3xl border border-white/10 bg-background/80 backdrop-blur-sm hover:bg-white/5 hover:border-indigo-500/50 transition-all duration-300"
+              className="pillar-item group p-8 rounded-3xl border border-white/10 bg-background/80 backdrop-blur-0 md:backdrop-blur-sm hover:bg-white/5 hover:border-indigo-500/50 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500 group-hover:scale-110 transition-all duration-300">
                 <item.icon

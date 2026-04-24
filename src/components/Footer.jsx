@@ -26,12 +26,12 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-8">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/2 h-56 w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[120px]" />
+        <div className="absolute top-0 left-1/2 h-56 w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[56px] md:blur-[120px]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="rounded-[32px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-sm md:px-10 md:py-12">
+        <div className="rounded-[32px] border border-white/10 bg-white/[0.03] px-6 py-10 backdrop-blur-0 md:backdrop-blur-sm md:px-10 md:py-12">
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl space-y-6">
