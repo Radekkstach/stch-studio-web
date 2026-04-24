@@ -113,7 +113,7 @@ const Hero = () => {
           </div>
           <div className="overflow-hidden">
             <span className="hero-line inline-block py-1">
-              začíná právě teď.
+              začíná právě teď<span className="animated-gradient-text">.</span>
             </span>
           </div>
         </h1>
