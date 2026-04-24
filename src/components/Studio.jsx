@@ -70,8 +70,8 @@ const Studio = () => {
       ref={containerRef}
     >
       {/* Záře v pozadí */}
-      <div className="absolute top-40 left-[15%] w-72 h-72 bg-indigo-600/30 blur-[48px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-60 mix-blend-screen" />
-      <div className="absolute bottom-32 right-[15%] w-64 h-64 bg-blue-500/50 blur-[48px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-50" />
+      <div className="absolute top-40 left-[15%] w-56 h-56 md:w-72 md:h-72 bg-indigo-600/30 blur-[18px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-45 md:opacity-60 mix-blend-screen" />
+      <div className="absolute bottom-32 right-[15%] w-48 h-48 md:w-64 md:h-64 bg-blue-500/50 blur-[18px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-35 md:opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Text */}

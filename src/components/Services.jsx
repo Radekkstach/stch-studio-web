@@ -35,8 +35,6 @@ const Services = () => {
   const xTo = useRef(null);
   const yTo = useRef(null);
 
-  const { contextSafe } = useGSAP({ scope: containerRef });
-
   useGSAP(
     () => {
       // 1. Nastavení animace myši (Parallax) - inicializace
@@ -66,7 +64,7 @@ const Services = () => {
   );
 
   // Funkce pro pohyb myši
-  const handleMouseMove = contextSafe((e) => {
+  const handleMouseMove = (e) => {
     // Mobil check - pokud je okno menší než 1024px, nic neděláme
     if (window.innerWidth < 1024) return;
 
@@ -82,18 +80,18 @@ const Services = () => {
       xTo.current(x);
       yTo.current(y);
     }
-  });
+  };
 
   return (
     <section
-      id="Služby"
+      id="Sluzby"
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="py-24 md:py-40 bg-background relative z-30 overflow-visible"
     >
       {/* --- GLOW EFEKTY --- */}
-      <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-600/50 blur-[56px] md:blur-[120px] rounded-full pointer-events-none -z-10 mix-blend-screen opacity-60" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-500/30 blur-[48px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-50" />
+      <div className="absolute top-[-10%] left-[-5%] w-[420px] h-[420px] md:w-[600px] md:h-[600px] bg-indigo-600/50 blur-[24px] md:blur-[120px] rounded-full pointer-events-none -z-10 mix-blend-screen opacity-50 md:opacity-60" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[360px] h-[360px] md:w-[500px] md:h-[500px] bg-blue-500/30 blur-[20px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-40 md:opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-20">

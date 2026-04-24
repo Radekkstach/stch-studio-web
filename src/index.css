@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-white font-sans antialiased;
     background-color: #0f0f0f;
@@ -44,6 +46,21 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
     animation: gradient-float 5s ease-in-out infinite;
+  }
+  .animated-gradient-text2 {
+    background-image: linear-gradient(
+      120deg,
+      #60a5fa,
+      #818cf8,
+      #a855f7,
+      #60a5fa
+    );
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-float 1s ease-in-out infinite;
   }
   .hero-rotating-word {
     display: inline-block;
@@ -159,14 +176,18 @@ html.lenis body {
 }
 
 @media (max-width: 640px) {
+  .animated-gradient-text {
+    animation: none;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+  }
+
   .hero-static-word {
     animation: none;
   }
 
   .hero-rotating-word {
-    animation:
-      gradient-float 5s ease-in-out infinite,
-      hero-word-enter-mobile 0.45s ease-out;
+    animation: hero-word-enter-mobile 0.45s ease-out;
   }
 
   .hero-rotating-line {
@@ -200,6 +221,12 @@ html.lenis body {
   .hero-static-word,
   .hero-rotating-word {
     white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-glow {
+    opacity: 0.65;
   }
 }
 

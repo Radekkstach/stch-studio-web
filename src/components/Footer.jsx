@@ -8,15 +8,12 @@ import {
   MapPin,
   X,
 } from "lucide-react";
-import logoWhite from "../assets/logo2.svg";
+import logoWhite from "../assets/nav_logo.png";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("gdpr");
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const openModal = (type) => {
     setModalContent(type);
@@ -26,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black pt-24 pb-8">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/2 h-56 w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[56px] md:blur-[120px]" />
+        <div className="absolute top-0 left-1/2 h-40 w-[24rem] md:h-56 md:w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[18px] md:blur-[120px]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
@@ -39,6 +36,8 @@ const Footer = () => {
                   <img
                     src={logoWhite}
                     alt="STCH Studio Logo"
+                    loading="lazy"
+                    decoding="async"
                     className="h-10 w-auto object-contain opacity-95"
                   />
                 </a>
@@ -145,12 +144,11 @@ const Footer = () => {
                 </div>
 
                 <button
-                  href="#hero"
+                  type="button"
+                  onClick={() => scrollToSection("hero")}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500"
                 >
-                  <a href="#hero">
-                    <ArrowUp size={16} />
-                  </a>
+                  <ArrowUp size={16} />
                 </button>
               </div>
             </div>
@@ -159,7 +157,7 @@ const Footer = () => {
       </div>
 
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:backdrop-blur-sm animate-in fade-in duration-300">
           <div className="relative flex max-h-[80vh] w-full max-w-2xl flex-col overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl">
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/10 bg-[#111] p-6">
               <h3 className="text-xl font-bold text-white">

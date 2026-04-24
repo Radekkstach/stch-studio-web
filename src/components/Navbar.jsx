@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import logoImg from "../assets/nav_logo.png";
+import { scrollToSection } from "../utils/scrollToSection";
 
 gsap.registerPlugin(useGSAP);
 
@@ -12,8 +13,24 @@ const Navbar = () => {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+
+    const updateScrolledState = () => {
+      const nextValue = window.scrollY > 50;
+      setIsScrolled((prev) => (prev === nextValue ? prev : nextValue));
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(updateScrolledState);
+    };
+
+    updateScrolledState();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -56,20 +73,13 @@ const Navbar = () => {
   // Hladký JS scroll
   const handleNavClick = (e, id) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false);
-
-    // Zpoždění pro plynulé zavření menu před scrollováním
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (id === "hero") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }, 300);
+    scrollToSection(id, {
+      closeMenu: () => setIsMobileMenuOpen(false),
+      delay: isMobileMenuOpen ? 300 : 0,
+    });
   };
 
-  const navLinks = ["Projekty", "Služby", "Studio"];
+  const navLinks = ["Projekty", "Sluzby", "Studio"];
 
   return (
     <>
@@ -82,7 +92,7 @@ const Navbar = () => {
         <div
           className={`nav-anim flex items-center justify-between pointer-events-auto transition-all duration-500 w-full rounded-full border ${
             isScrolled
-              ? "max-w-4xl bg-[#0a0a0a]/80 backdrop-blur-sm md:backdrop-blur-xl border-white/10 px-5 py-3 md:px-8 md:py-4 shadow-2xl"
+              ? "max-w-4xl bg-[#0a0a0a]/90 backdrop-blur-0 md:backdrop-blur-xl border-white/10 px-5 py-3 md:px-8 md:py-4 shadow-2xl"
               : "max-w-7xl bg-transparent border-transparent px-2 py-2 md:px-0 md:py-0"
           }`}
         >
@@ -142,7 +152,7 @@ const Navbar = () => {
       {/* --- MOBILNÍ MENU OVERLAY --- */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col justify-center px-8 transition-all duration-500 overflow-hidden md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center px-8 transition-all duration-500 overflow-hidden md:hidden ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none delay-300"

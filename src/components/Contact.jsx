@@ -42,7 +42,7 @@ const Contact = () => {
         );
         setIsSubmitting(false);
       }
-    } catch (error) {
+    } catch {
       setErrorMessage("Chyba připojení. Zkontrolujte internet.");
       setIsSubmitting(false);
     }
@@ -54,8 +54,8 @@ const Contact = () => {
       className="py-24 md:py-32 bg-background relative z-10 "
     >
       {/* --- GLOW EFEKTY --- */}
-      <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-indigo-600/20 blur-[56px] md:blur-[120px] rounded-full pointer-events-none -z-10 mix-blend-screen opacity-50" />
-      <div className="absolute bottom-0 right-[-10%] w-[400px] h-[400px] bg-blue-500/50 blur-[48px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-40" />
+      <div className="absolute top-0 left-[-10%] w-[340px] h-[340px] md:w-[500px] md:h-[500px] bg-indigo-600/20 blur-[20px] md:blur-[120px] rounded-full pointer-events-none -z-10 mix-blend-screen opacity-35 md:opacity-50" />
+      <div className="absolute bottom-0 right-[-10%] w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-blue-500/50 blur-[18px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-30 md:opacity-40" />
 
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32">

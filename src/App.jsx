@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -6,14 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Services from "./components/Services";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Studio from "./components/Studio";
-import Archive from "./components/Archive";
+
+const Footer = lazy(() => import("./components/Footer"));
+const Services = lazy(() => import("./components/Services"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const Studio = lazy(() => import("./components/Studio"));
+const Archive = lazy(() => import("./components/Archive"));
 
 gsap.registerPlugin(ScrollTrigger);
+
+const sectionFallback = (minHeight) => (
+  <div className="w-full px-6 py-12" style={{ minHeight }} aria-hidden="true" />
+);
 
 const Home = () => {
   return (
@@ -24,28 +29,36 @@ const Home = () => {
           <div id="hero">
             <Hero />
           </div>
-          <div id="Projekty">
-            <Projects />
+          <div>
+            <Suspense fallback={sectionFallback(640)}>
+              <Projects />
+            </Suspense>
           </div>
-          <div id="Sluzby">
-            <Services />
+          <div>
+            <Suspense fallback={sectionFallback(720)}>
+              <Services />
+            </Suspense>
           </div>
-          <div id="Studio">
-            <Studio />
+          <div>
+            <Suspense fallback={sectionFallback(560)}>
+              <Studio />
+            </Suspense>
           </div>
-          <div id="Kontakt">
-            <Contact />
+          <div>
+            <Suspense fallback={sectionFallback(760)}>
+              <Contact />
+            </Suspense>
           </div>
         </main>
-        <Footer />
+        <Suspense fallback={sectionFallback(320)}>
+          <Footer />
+        </Suspense>
       </div>
     </main>
   );
 };
 
 function App() {
-  const lenisRef = useRef(null);
-
   useEffect(() => {
     const isTouchDevice =
       window.matchMedia("(pointer: coarse)").matches ||
@@ -54,8 +67,6 @@ function App() {
     const shouldUseNativeScroll = isTouchDevice || isSmallScreen;
 
     let lenis = null;
-
-    const syncScrollTrigger = () => ScrollTrigger.update();
 
     if (!shouldUseNativeScroll) {
       lenis = new Lenis({
@@ -69,10 +80,7 @@ function App() {
         touchMultiplier: 2,
       });
 
-      lenisRef.current = lenis;
       lenis.on("scroll", ScrollTrigger.update);
-    } else {
-      window.addEventListener("scroll", syncScrollTrigger, { passive: true });
     }
 
     const update = (time) => {
@@ -84,38 +92,9 @@ function App() {
       gsap.ticker.lagSmoothing(0);
     }
 
-    const handleAnchorClick = (e) => {
-      const anchor = e.target.closest("a");
-      if (!anchor) return;
-
-      const href = anchor.getAttribute("href");
-      if (!href || !href.startsWith("#")) return;
-
-      const targetId = href;
-      if (targetId === "#") return;
-
-      e.preventDefault();
-
-      const targetElement = document.querySelector(targetId);
-      if (!targetElement) return;
-
-      if (lenis) {
-        lenis.scrollTo(targetElement, {
-          offset: 0,
-          immediate: false,
-        });
-      } else {
-        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-
-    document.addEventListener("click", handleAnchorClick);
-
     return () => {
       lenis?.destroy();
       gsap.ticker.remove(update);
-      window.removeEventListener("scroll", syncScrollTrigger);
-      document.removeEventListener("click", handleAnchorClick);
     };
   }, []);
 
@@ -123,7 +102,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/archiv" element={<Archive />} />
+        <Route
+          path="/archiv"
+          element={
+            <Suspense fallback={sectionFallback(640)}>
+              <Archive />
+            </Suspense>
+          }
+        />
       </Routes>
     </Router>
   );

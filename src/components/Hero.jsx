@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowDownRight, ChevronRight } from "lucide-react";
+import { scrollToSection } from "../utils/scrollToSection";
 
 gsap.registerPlugin(useGSAP);
 
@@ -56,15 +57,6 @@ const Hero = () => {
     { scope: container },
   );
 
-  // --- TOTO JE TA ZMĚNA (JavaScriptový scroll) ---
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      // Vynutíme plynulý scroll na daný element
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <section
       ref={container}
@@ -113,7 +105,7 @@ const Hero = () => {
           </div>
           <div className="overflow-hidden">
             <span className="hero-line inline-block py-1">
-              začíná právě teď<span className="animated-gradient-text">.</span>
+              začíná právě teď<span className="animated-gradient-text2">.</span>
             </span>
           </div>
         </h1>
@@ -129,6 +121,10 @@ const Hero = () => {
           {/* Tlačítko 1 - Chci se odlišit -> Odkaz na Kontakt */}
           <a
             href="#Kontakt"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("Kontakt");
+            }}
             className="w-full sm:w-auto h-14 px-8 inline-flex items-center justify-center rounded-full bg-primary text-white font-medium text-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer"
           >
             Chci se odlišit <ChevronRight size={20} className="ml-2" />
@@ -137,6 +133,10 @@ const Hero = () => {
           {/* Tlačítko 2 - Projekty -> Odkaz na Projekty */}
           <a
             href="#Projekty"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("Projekty");
+            }}
             className="w-full sm:w-auto h-14 px-8 inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent text-white font-medium text-lg hover:bg-white/5 transition-colors cursor-pointer"
           >
             <ArrowDownRight size={18} className="mr-2" /> Prozkoumat projekty
