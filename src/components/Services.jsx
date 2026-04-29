@@ -50,11 +50,10 @@ const Services = () => {
       // 2. Animace Textu (Blur efekt) při změně activeIndex
       gsap.fromTo(
         ".service-content-anim",
-        { y: 20, opacity: 0, filter: "blur(10px)" },
+        { y: 20, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          filter: "blur(0px)",
           duration: 0.6,
           ease: "power2.out",
         },
@@ -90,8 +89,8 @@ const Services = () => {
       className="py-24 md:py-40 bg-background relative z-30 overflow-visible"
     >
       {/* --- GLOW EFEKTY --- */}
-      <div className="absolute top-[-10%] left-[-5%] w-[420px] h-[420px] md:w-[600px] md:h-[600px] bg-indigo-600/50 blur-[24px] md:blur-[120px] rounded-full pointer-events-none -z-10 mix-blend-screen opacity-50 md:opacity-60" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[360px] h-[360px] md:w-[500px] md:h-[500px] bg-blue-500/30 blur-[20px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-40 md:opacity-50" />
+      <div className="absolute top-[-10%] left-[-5%] w-[420px] h-[420px] md:w-[600px] md:h-[600px] bg-indigo-600/30 blur-[40px] md:blur-[120px] rounded-full pointer-events-none -z-10 opacity-50 md:opacity-60" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[360px] h-[360px] md:w-[500px] md:h-[500px] bg-blue-500/20 blur-[30px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-40 md:opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-20">
