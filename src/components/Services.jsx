@@ -114,7 +114,7 @@ const Services = () => {
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setActiveIndex(index)}
                 className={`
-                    group flex items-center justify-between p-6 rounded-2xl cursor-pointer transition-all duration-500 border
+                    group flex items-center justify-between p-6 rounded-2xl cursor-pointer transition-[background-color,border-color,opacity,transform] duration-500 border
                     ${
                       activeIndex === index
                         ? "bg-white/5 border-white/10 translate-x-4"
@@ -135,7 +135,7 @@ const Services = () => {
                   </h4>
                 </div>
                 <ArrowRight
-                  className={`transition-all duration-300 ${activeIndex === index ? "opacity-100 translate-x-0 text-indigo-400" : "opacity-0 -translate-x-4"}`}
+                  className={`transition-[opacity,transform,color] duration-300 ${activeIndex === index ? "opacity-100 translate-x-0 text-indigo-400" : "opacity-0 -translate-x-4"}`}
                 />
               </div>
             ))}
@@ -145,7 +145,7 @@ const Services = () => {
           <div className="relative h-[500px] w-full flex items-center justify-center">
             {/* PARALLAX KONTEJNER (IKONA V POZADÍ) */}
             <div className="parallax-target absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-              <div className="transition-all duration-700 transform scale-110">
+              <div className="scale-110">
                 {/* OPRAVA VELIKOSTI IKONY PRO MOBIL: 
                    Místo size={450} používáme className s w-full/h-full a omezíme rodiče.
                    To zabrání, aby ikona "rozbila" šířku na malém mobilu.

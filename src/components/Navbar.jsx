@@ -5,8 +5,6 @@ import { useGSAP } from "@gsap/react";
 import logoImg from "../assets/nav_logo.png";
 import { scrollToSection } from "../utils/scrollToSection";
 
-gsap.registerPlugin(useGSAP);
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -85,12 +83,12 @@ const Navbar = () => {
     <>
       {/* --- HLAVNÍ NAVBAR --- */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-in-out pointer-events-none ${
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-[padding] duration-500 ease-in-out pointer-events-none ${
           isScrolled ? "pt-4 px-4 md:pt-6" : "pt-6 px-4 md:pt-10 md:px-12"
         }`}
       >
         <div
-          className={`nav-anim flex items-center justify-between pointer-events-auto transition-all duration-500 w-full rounded-full border ${
+          className={`nav-anim flex items-center justify-between pointer-events-auto transition-[max-width,background-color,border-color,padding,box-shadow] duration-500 w-full rounded-full border ${
             isScrolled
               ? "max-w-4xl bg-[#0a0a0a]/90 backdrop-blur-0 md:backdrop-blur-xl border-white/10 px-5 py-3 md:px-8 md:py-4 shadow-2xl"
               : "max-w-7xl bg-transparent border-transparent px-2 py-2 md:px-0 md:py-0"
@@ -105,7 +103,7 @@ const Navbar = () => {
             <img
               src={logoImg}
               alt="Logo"
-              className={`relative z-10 w-auto object-contain transition-all duration-500 ${
+              className={`relative z-10 w-auto object-contain transition-[height] duration-500 ${
                 isScrolled ? "h-6 md:h-7" : "h-7 md:h-10"
               }`}
             />
@@ -130,7 +128,7 @@ const Navbar = () => {
             <a
               href="#Kontakt"
               onClick={(e) => handleNavClick(e, "Kontakt")}
-              className={`group relative overflow-hidden bg-white text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 ${
+              className={`group relative overflow-hidden bg-white text-black font-semibold rounded-full transition-[padding,font-size,transform] duration-300 hover:scale-105 active:scale-95 ${
                 isScrolled ? "px-6 py-2 text-sm" : "px-8 py-3 text-base"
               }`}
             >
@@ -152,7 +150,7 @@ const Navbar = () => {
       {/* --- MOBILNÍ MENU OVERLAY --- */}
       <div
         ref={menuRef}
-        className={`fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center px-8 transition-all duration-500 overflow-hidden md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center px-8 transition-opacity duration-500 overflow-hidden md:hidden ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none delay-300"

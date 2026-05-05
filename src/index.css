@@ -10,7 +10,6 @@
   body {
     @apply bg-background text-white font-sans antialiased;
     background-color: #0f0f0f;
-    /* TOTO OPRAVUJE ŠÍŘKU NA MOBILU: */
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -18,7 +17,6 @@
 
   html {
     width: 100%;
-    /* TOTO JE NUTNÉ PRO LENIS I PRO MOBIL: */
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -111,27 +109,6 @@
   }
 }
 
-/* LENIS KONFIGURACE (Nutná pro správné fungování) */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
 
 @keyframes gradient-float {
   0% {

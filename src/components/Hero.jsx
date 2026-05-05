@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { ArrowDownRight, ChevronRight } from "lucide-react";
 import { scrollToSection } from "../utils/scrollToSection";
 
-gsap.registerPlugin(useGSAP);
-
 const rotatingPhrases = ["webu", "inovací", "vaší značky", "internetu"];
 
 const longestPhrase = rotatingPhrases.reduce((longest, current) =>
@@ -48,7 +46,6 @@ const Hero = () => {
           ".hero-glow",
           {
             opacity: 0,
-            scale: 0.8,
             duration: 2,
           },
           "-=1",

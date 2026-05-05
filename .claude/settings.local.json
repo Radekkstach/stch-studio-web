@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -E \"\\\\.cursor|CLAUDE|\\\\.md$\")"
+      "Bash(grep -E \"\\\\.cursor|CLAUDE|\\\\.md$\")",
+      "Bash(npm run *)"
     ]
   }
 }

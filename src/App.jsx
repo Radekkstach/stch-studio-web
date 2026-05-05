@@ -1,8 +1,8 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -14,7 +14,7 @@ const Contact = lazy(() => import("./components/Contact"));
 const Studio = lazy(() => import("./components/Studio"));
 const Archive = lazy(() => import("./components/Archive"));
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const sectionFallback = (minHeight) => (
   <div className="w-full px-6 py-12" style={{ minHeight }} aria-hidden="true" />
@@ -59,45 +59,6 @@ const Home = () => {
 };
 
 function App() {
-  useEffect(() => {
-    const isTouchDevice =
-      window.matchMedia("(pointer: coarse)").matches ||
-      navigator.maxTouchPoints > 0;
-    const isSmallScreen = window.innerWidth < 1024;
-    const shouldUseNativeScroll = isTouchDevice || isSmallScreen;
-
-    let lenis = null;
-
-    if (!shouldUseNativeScroll) {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-      });
-
-      lenis.on("scroll", ScrollTrigger.update);
-    }
-
-    const update = (time) => {
-      lenis?.raf(time * 1000);
-    };
-
-    if (!shouldUseNativeScroll) {
-      gsap.ticker.add(update);
-      gsap.ticker.lagSmoothing(0);
-    }
-
-    return () => {
-      lenis?.destroy();
-      gsap.ticker.remove(update);
-    };
-  }, []);
-
   return (
     <Router>
       <Routes>

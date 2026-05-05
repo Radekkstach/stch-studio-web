@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { projects } from "../data/projectsData";
 
-gsap.registerPlugin(useGSAP);
-
 const Archive = () => {
   const container = useRef();
 
@@ -52,9 +50,9 @@ const Archive = () => {
         <div className="flex flex-col items-start gap-8">
           <Link
             to="/"
-            className="group inline-flex items-center gap-3 text-muted hover:text-white transition-all duration-300"
+            className="group inline-flex items-center gap-3 text-muted hover:text-white transition-colors duration-300"
           >
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-all duration-300 group-hover:-translate-x-1">
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-[background-color,border-color,transform] duration-300 group-hover:-translate-x-1">
               <ArrowLeft size={18} />
             </div>
             <span className="text-sm uppercase tracking-[0.1em] font-medium">
@@ -112,7 +110,7 @@ const Archive = () => {
                 />
 
                 {/* Hover ikona se skleněným efektem */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 z-20">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-[opacity,transform] duration-300 z-20">
                   <ExternalLink size={24} />
                 </div>
               </div>
@@ -134,7 +132,7 @@ const Archive = () => {
                   {project.title}
                   <ArrowUpRight
                     size={24}
-                    className="opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                    className="opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-[opacity,transform] duration-300 ease-out"
                   />
                 </h3>
 

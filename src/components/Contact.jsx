@@ -173,7 +173,7 @@ const Contact = () => {
                         key={option}
                         type="button"
                         onClick={() => setBudget(option)}
-                        className={`px-4 py-2 rounded-full text-sm border transition-all duration-300 ${
+                        className={`px-4 py-2 rounded-full text-sm border transition-[background-color,border-color] duration-300 ${
                           budget === option
                             ? "bg-indigo-500 border-indigo-500 text-white"
                             : "bg-transparent border-white/20 text-muted hover:border-white/50"
@@ -205,7 +205,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-white text-black font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-indigo-400 hover:text-white transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-white text-black font-bold py-4 rounded-full flex items-center justify-center gap-2 hover:bg-indigo-400 hover:text-white transition-[background-color,color] duration-300 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Odesílám..." : "Odeslat poptávku"}
                   {!isSubmitting && (

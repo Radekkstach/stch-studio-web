@@ -59,7 +59,7 @@ const Footer = () => {
               <div className="flex flex-col gap-5 lg:items-end">
                 <a
                   href="#Kontakt"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-indigo-400 hover:text-white"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-[background-color,color] duration-300 hover:bg-indigo-400 hover:text-white"
                 >
                   Nezavazna konzultace
                 </a>
@@ -69,7 +69,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                     href="https://www.linkedin.com/in/radek-stach/"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white hover:text-black"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-[background-color,color] duration-300 hover:bg-white hover:text-black"
                   >
                     <Linkedin size={18} />
                   </a>
@@ -77,7 +77,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                     href="https://www.instagram.com/stchstudio.cz/"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-white hover:text-black"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-[background-color,color] duration-300 hover:bg-white hover:text-black"
                   >
                     <Instagram size={18} />
                   </a>
@@ -146,7 +146,7 @@ const Footer = () => {
                 <button
                   type="button"
                   onClick={() => scrollToSection("hero")}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500"
                 >
                   <ArrowUp size={16} />
                 </button>
@@ -167,7 +167,7 @@ const Footer = () => {
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="rounded-full p-2 text-muted transition-all hover:bg-white/10 hover:text-white"
+                className="rounded-full p-2 text-muted transition-[background-color,color] hover:bg-white/10 hover:text-white"
               >
                 <X size={24} />
               </button>
@@ -224,7 +224,7 @@ const Footer = () => {
             <div className="border-t border-white/10 bg-[#111] p-6">
               <button
                 onClick={() => setModalOpen(false)}
-                className="w-full rounded-full bg-white py-3 font-bold text-black transition-all hover:bg-indigo-400 hover:text-white"
+                className="w-full rounded-full bg-white py-3 font-bold text-black transition-[background-color,color] hover:bg-indigo-400 hover:text-white"
               >
                 Rozumim
               </button>

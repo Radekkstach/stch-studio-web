@@ -1,10 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap, Layout, TrendingUp } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
   {
@@ -70,7 +67,7 @@ const Studio = () => {
       ref={containerRef}
     >
       {/* Záře v pozadí */}
-      <div className="absolute top-40 left-[15%] w-56 h-56 md:w-72 md:h-72 bg-indigo-600/30 blur-[18px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-45 md:opacity-60 mix-blend-screen" />
+      <div className="absolute top-40 left-[15%] w-56 h-56 md:w-72 md:h-72 bg-indigo-600/30 blur-[18px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-45 md:opacity-60" />
       <div className="absolute bottom-32 right-[15%] w-48 h-48 md:w-64 md:h-64 bg-blue-500/50 blur-[18px] md:blur-[90px] rounded-full pointer-events-none -z-10 opacity-35 md:opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -97,9 +94,9 @@ const Studio = () => {
           {pillars.map((item, index) => (
             <div
               key={index}
-              className="pillar-item group p-8 rounded-3xl border border-white/10 bg-background/80 backdrop-blur-0 md:backdrop-blur-sm hover:bg-white/5 hover:border-indigo-500/50 transition-all duration-300"
+              className="pillar-item group p-8 rounded-3xl border border-white/10 bg-background/80 backdrop-blur-0 md:backdrop-blur-sm hover:bg-white/5 hover:border-indigo-500/50 transition-[background-color,border-color] duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500 group-hover:scale-110 transition-all duration-300">
+              <div className="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500 group-hover:scale-110 transition-[background-color,transform] duration-300">
                 <item.icon
                   size={28}
                   className="text-indigo-400 group-hover:text-white transition-colors"
