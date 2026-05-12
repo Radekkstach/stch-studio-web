@@ -3,10 +3,13 @@ import { ArrowLeft, ExternalLink, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { projects } from "../data/projectsData";
+import { getLocalizedProjects } from "../data/projectsData";
+import { useTranslation } from "../i18n";
 
 const Archive = () => {
   const container = useRef();
+  const { t, lang } = useTranslation();
+  const projects = getLocalizedProjects(lang);
 
   // Scroll nahoru při načtení stránky
   useEffect(() => {
@@ -40,33 +43,32 @@ const Archive = () => {
   return (
     <div
       ref={container}
-      className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-hidden relative"
+      className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30 overflow-hidden relative"
     >
       {/* Decentní background glow pro atmosféru */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* --- HLAVIČKA --- */}
-      <header className="archive-header container mx-auto px-6 pt-16 pb-12 md:py-24 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-white/5">
+      <header className="archive-header container mx-auto px-6 pt-16 pb-12 md:py-24 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-foreground/10">
         <div className="flex flex-col items-start gap-8">
           <Link
-            to="/"
-            className="group inline-flex items-center gap-3 text-muted hover:text-white transition-colors duration-300"
+            to={lang === "en" ? "/en" : "/"}
+            className="group inline-flex items-center gap-3 text-muted hover:text-foreground transition-colors duration-300"
           >
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-[background-color,border-color,transform] duration-300 group-hover:-translate-x-1">
+            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-[background-color,border-color,transform] duration-300 group-hover:-translate-x-1">
               <ArrowLeft size={18} />
             </div>
             <span className="text-sm uppercase tracking-[0.1em] font-medium">
-              Zpět na hlavní
+              {t("archive.back")}
             </span>
           </Link>
 
           <div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">
-              Kompletní <span className="text-indigo-400">Archiv.</span>
+              {t("archive.titleStart")} <span className="text-indigo-400">{t("archive.titleHighlight")}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted max-w-xl leading-relaxed">
-              Prozkoumejte všechny naše dosavadní práce. Od malých prezentací až
-              po komplexní webové aplikace.
+              {t("archive.description")}
             </p>
           </div>
         </div>
@@ -77,7 +79,7 @@ const Archive = () => {
             {String(projects.length).padStart(2, "0")}
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-muted mt-2">
-            Celkem prací
+            {t("archive.totalLabel")}
           </p>
         </div>
       </header>
@@ -99,7 +101,7 @@ const Archive = () => {
             >
               {/* Image Container */}
               {/* ZMĚNA: Poměr stran změněn na aspect-video (16:9) */}
-              <div className="relative aspect-video overflow-hidden rounded-2xl mb-8 bg-white/5 border border-white/10 group-hover:border-indigo-500/30 transition-colors duration-500">
+              <div className="relative aspect-video overflow-hidden rounded-2xl mb-8 bg-foreground/5 border border-foreground/10 group-hover:border-indigo-500/30 transition-colors duration-500">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <img
                   src={project.image}
@@ -122,7 +124,7 @@ const Archive = () => {
                     {project.category}
                   </span>
                   {project.year && (
-                    <span className="text-xs text-muted font-mono border border-white/10 px-2 py-1 rounded">
+                    <span className="text-xs text-muted font-mono border border-foreground/10 px-2 py-1 rounded">
                       {project.year}
                     </span>
                   )}

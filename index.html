@@ -26,15 +26,40 @@
     <meta property="og:site_name" content="STCH Studio" />
 
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJJW61YT86"></script>
+    <!-- Theme init — prevents FOUC by setting class before paint -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("stch-theme");
+          var theme = stored === "light" || stored === "dark" ? stored : "dark";
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <!-- Google tag (gtag.js) s Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-HJJW61YT86');
+  // Defaultně vše zakázáno – GA nesmí nic zaznamenat dokud uživatel neudělí souhlas
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'wait_for_update': 500
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-HJJW61YT86', { 'anonymize_ip': true });
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJJW61YT86"></script>
 
 
     </head>

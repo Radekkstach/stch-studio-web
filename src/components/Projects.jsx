@@ -2,12 +2,13 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom"; // Import Link komponenty
-import { projects } from "../data/projectsData"; // Import dat
+import { Link } from "react-router-dom";
+import { getLocalizedProjects } from "../data/projectsData";
+import { useTranslation } from "../i18n";
 
 const Projects = () => {
-  // Vezmeme jen první 3 projekty
-  const featuredProjects = projects.slice(0, 3);
+  const { t, lang } = useTranslation();
+  const featuredProjects = getLocalizedProjects(lang).slice(0, 3);
 
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
@@ -74,7 +75,7 @@ const Projects = () => {
                     className="group cursor-pointer block"
                   >
                     {/* Obrázek s overlayem */}
-                    <div className="relative overflow-hidden rounded-3xl aspect-video md:aspect-[16/9] mb-6 border border-white/5 bg-surface">
+                    <div className="relative overflow-hidden rounded-3xl aspect-video md:aspect-[16/9] mb-6 border border-foreground/10 bg-surface">
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
                       <img
                         src={project.image}
@@ -84,7 +85,7 @@ const Projects = () => {
                         className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"
                       />
 
-                      <div className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-[opacity,transform] duration-300 z-20">
+                      <div className="absolute top-6 right-6 w-12 h-12 bg-foreground rounded-full flex items-center justify-center text-background opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-[opacity,transform] duration-300 z-20">
                         <ArrowUpRight size={24} />
                       </div>
                     </div>
@@ -114,14 +115,14 @@ const Projects = () => {
       {/* --- TLAČÍTKO DO ARCHIVU --- */}
       <div className="w-full bg-background py-24 flex justify-center items-center relative z-10 ">
         <Link
-          to="/archiv"
-          className="group relative inline-flex items-center gap-4 px-8 py-4 bg-transparent border border-white/20 rounded-full hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-[border-color,background-color] duration-300"
+          to={lang === "en" ? "/en/archive" : "/archiv"}
+          className="group relative inline-flex items-center gap-4 px-8 py-4 bg-transparent border border-foreground/20 rounded-full hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-[border-color,background-color] duration-300"
         >
-          <span className="text-xl font-medium text-white group-hover:text-indigo-300 transition-colors">
-            Zobrazit celý archiv
+          <span className="text-xl font-medium text-foreground group-hover:text-indigo-400 dark:group-hover:text-indigo-300 transition-colors">
+            {t("projects.viewArchive")}
           </span>
 
-          <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-indigo-500 group-hover:text-white transition-[background-color,color,transform] duration-300 group-hover:translate-x-2">
+          <div className="w-10 h-10 bg-foreground/5 rounded-full flex items-center justify-center text-foreground group-hover:bg-indigo-500 group-hover:text-white transition-[background-color,color,transform] duration-300 group-hover:translate-x-2">
             <ArrowRight size={20} />
           </div>
         </Link>

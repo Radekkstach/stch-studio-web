@@ -3,32 +3,77 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* LIGHT — refined off-white with cool tint */
+    --color-background: 245 247 250;
+    --color-surface: 255 255 255;
+    --color-foreground: 15 23 42;
+    --color-muted: 100 116 139;
+    --color-primary: 99 102 241;
+    --color-secondary: 168 85 247;
+    --color-accent: 236 72 153;
+
+    --hero-gradient: radial-gradient(
+      ellipse at top,
+      #e0e7ff 0%,
+      rgb(var(--color-background)) 55%
+    );
+    --glass-gradient: linear-gradient(
+      180deg,
+      rgb(15 23 42 / 0.04) 0%,
+      rgb(15 23 42 / 0) 100%
+    );
+
+    color-scheme: light;
+  }
+
+  .dark {
+    --color-background: 3 7 18;
+    --color-surface: 17 24 39;
+    --color-foreground: 255 255 255;
+    --color-muted: 148 163 184;
+    --color-primary: 99 102 241;
+    --color-secondary: 168 85 247;
+    --color-accent: 236 72 153;
+
+    --hero-gradient: radial-gradient(
+      ellipse at top,
+      #1e1b4b 0%,
+      #030712 50%
+    );
+    --glass-gradient: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 0.05) 0%,
+      rgb(255 255 255 / 0) 100%
+    );
+
+    color-scheme: dark;
+  }
+
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
   }
 
   body {
-    @apply bg-background text-white font-sans antialiased;
-    background-color: #0f0f0f;
+    @apply bg-background text-foreground font-sans antialiased;
     overflow-x: hidden;
     width: 100%;
     position: relative;
-  }
-
-  html {
-    width: 100%;
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
+    transition:
+      background-color 0.45s ease,
+      color 0.45s ease;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-glass backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-glass backdrop-blur-md border border-foreground/10 shadow-xl;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-indigo-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-indigo-400 to-indigo-500;
   }
   .animated-gradient-text {
     background-image: linear-gradient(
@@ -108,7 +153,6 @@
     padding-bottom: 0.08em;
   }
 }
-
 
 @keyframes gradient-float {
   0% {
