@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { ArrowLeft, ExternalLink, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -49,7 +49,7 @@ const Archive = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* --- HLAVIČKA --- */}
-      <header className="archive-header container mx-auto px-6 pt-16 pb-12 md:py-24 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-foreground/10">
+      <header className="archive-header container mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-24 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-foreground/10">
         <div className="flex flex-col items-start gap-8">
           <Link
             to={lang === "en" ? "/en" : "/"}
@@ -89,11 +89,13 @@ const Archive = () => {
         {/* Zachováváme 2 sloupce a asymetrický look pro moderní studio vibe */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-24">
           {projects.map((project, index) => (
-            <a
+            <Link
               key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              to={
+                lang === "en"
+                  ? `/en/archive/project/${project.slug}`
+                  : `/archiv/projekt/${project.slug}`
+              }
               /* Sudé karty na desktopech posunuty dolů o md:mt-24 pro asymetrický look */
               className={`archive-card group block ${
                 index % 2 !== 0 ? "md:mt-24" : ""
@@ -113,7 +115,7 @@ const Archive = () => {
 
                 {/* Hover ikona se skleněným efektem */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-[opacity,transform] duration-300 z-20">
-                  <ExternalLink size={24} />
+                  <ArrowUpRight size={24} />
                 </div>
               </div>
 
@@ -142,7 +144,7 @@ const Archive = () => {
                   {project.description}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </main>

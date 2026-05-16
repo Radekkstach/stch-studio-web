@@ -15,7 +15,8 @@ const Hero = () => {
   const longestPhrase = useMemo(
     () =>
       rotatingPhrases.reduce(
-        (longest, current) => (current.length > longest.length ? current : longest),
+        (longest, current) =>
+          current.length > longest.length ? current : longest,
         rotatingPhrases[0] || "",
       ),
     [rotatingPhrases],
@@ -70,16 +71,8 @@ const Hero = () => {
       <div className="absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[90vw] h-64 md:w-[760px] md:h-80 bg-indigo-500/12 blur-[20px] md:blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-        <div className="hero-fade inline-flex items-center gap-2 px-3 py-1 rounded-full border border-foreground/10 bg-foreground/5 text-xs md:text-sm font-medium text-indigo-500 dark:text-indigo-300 mb-6 md:mb-8">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-          </span>
-          {t("hero.badge")}
-        </div>
-
         <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden py-[0.3em] -my-[0.3em]">
             <span className="hero-line hero-rotating-line" aria-live="polite">
               <span className="hero-rotating-line-sizer" aria-hidden="true">
                 <span>{titleStatic} </span>
@@ -97,7 +90,7 @@ const Hero = () => {
                 </span>
                 <span
                   key={rotatingPhrases[activePhraseIndex]}
-                  className="animated-gradient-text hero-rotating-word"
+                  className="animated-gradient-text hero-rotating-word "
                 >
                   {rotatingPhrases[activePhraseIndex]}
                 </span>
@@ -136,7 +129,8 @@ const Hero = () => {
             }}
             className="w-full sm:w-auto h-14 px-8 inline-flex items-center justify-center rounded-full border border-foreground/20 bg-transparent text-foreground font-medium text-lg hover:bg-foreground/5 transition-colors cursor-pointer"
           >
-            <ArrowDownRight size={18} className="mr-2" /> {t("hero.ctaSecondary")}
+            <ArrowDownRight size={18} className="mr-2" />{" "}
+            {t("hero.ctaSecondary")}
           </a>
         </div>
       </div>

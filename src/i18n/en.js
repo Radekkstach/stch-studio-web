@@ -3,6 +3,7 @@ const en = {
     projects: "Projects",
     services: "Services",
     studio: "Studio",
+    about: "About",
     contact: "Contact",
     writeUs: "Get in touch",
     menu: "Navigation",
@@ -17,7 +18,7 @@ const en = {
     badge: "Premium Web Development",
     titleStatic: "The future of",
     titleEnd: "starts right now",
-    rotating: ["the web", "innovation", "your brand", "the internet"],
+    rotating: ["the web", "innovation", "your brand", "digital", "your business", "e-commerce"],
     description:
       "Step out of the sea of grey templates. We build interactive experiences your customers will remember at first glance.",
     ctaPrimary: "Make me stand out",
@@ -165,6 +166,45 @@ const en = {
     description:
       "Explore everything we've worked on so far. From small presentations to complex web applications.",
     totalLabel: "Projects total",
+    viewDetail: "View case study",
+  },
+
+  caseStudy: {
+    backToArchive: "Back to archive",
+    visitLive: "Visit live site",
+    client: "Client",
+    year: "Year",
+    timeline: "Timeline",
+    category: "Category",
+    tech: "Tech stack",
+    challengeTitle: "The challenge",
+    approachTitle: "Our approach",
+    noCaseStudy:
+      "A detailed case study for this project is on the way. In the meantime, take a look at the live site.",
+    nextProject: "Next project",
+    prevProject: "Previous project",
+    notFound: {
+      title: "Project not found",
+      description: "This project doesn't exist in the archive. Please go back.",
+      action: "Back to archive",
+    },
+  },
+
+  aboutMe: {
+    back: "Back home",
+    eyebrow: "About me",
+    name: "Radek Stach",
+    role: "Web Designer & Developer",
+    location: "Třebíč, Czech Republic",
+    intro:
+      "Founder of STCH Studio. I build websites for businesses that want to stand out — clean, fast and without the noise.",
+    storyTitle: "Who I am",
+    storyBody:
+      "I work solo, with a small group of clients. Every project gets my full attention from the first concept to launch.\n\nA website is more than a business card. Built right, it brings in customers, builds trust and sets you apart. That's what I focus on.",
+    ctaTitle: "Let's build something that works.",
+    ctaText:
+      "Have a project or just an idea? Write to me and we'll figure out how to turn it into a site you're proud of.",
+    ctaButton: "Write to me",
   },
 
   cookies: {

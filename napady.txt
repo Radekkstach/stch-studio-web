@@ -1,0 +1,46 @@
+1. Sociální důkaz (Social Proof) – Ten nejdůležitější krok
+Lidé nevěří textu, věří lidem. Momentálně na webu chybí obličeje a konkrétní výsledky.
+
+
+Loga a čísla: Máš tam skvělé projekty (JML Mont, Bar Praha). Přidej sekci s logy firem, se kterými jsi spolupracoval. Pokud máš data (např. „Zrychlili jsme web o 40 %“, „Konverze stouply o 15 %“), dej to tam velkým písmem.
+
+2. Ukázka „Behind the Scenes“ (Show, don't just tell)
+Tvrdíš, že tvoříte „digitální architekturu“. Ukaž ji!
+
+Interaktivní case studies: Místo statických obrázků v portfoliu udělej pro každý projekt samostatnou stránku (Case Study). Ukaž tam:
+
+Původní stav vs. Nový stav.
+
+Drátěný model (wireframe) vs. finální design.
+
+Detailní záběry na animace nebo unikátní kód.
+
+Lighthouse skóre: Jelikož stavíš na Next.js, hoď tam screenshoty z PageSpeed Insights s výsledky 100/100. To je pro technicky zdatnější klienty obrovský argument.
+
+3. Personalizace a lidskost (Kdo za tím stojí?)
+Sekce „Studio“ je teď trochu neosobní. Lidé chtějí vědět, komu svěřují své peníze.
+
+Tým: Přidej fotky zakladatelů/týmu. Profesionální, stylové (třeba i černobílé, aby to ladilo s webem), ale lidské.
+
+Proces: Udělej vizuální časovou osu: Konzultace -> Design -> Vývoj -> Launch -> Support. Klient se cítí bezpečněji, když přesně ví, co se bude dít po podpisu smlouvy.
+
+4. Designové „Wow“ detaily (Micro-interactions)
+Tvůj web je čistý, ale mohl by být víc „sexy“ pomocí jemných technických detailů:
+
+Custom Cursor: Jemná změna kurzoru při najetí na interaktivní prvky (např. zvětšení kroužku s textem „View Project“).
+
+Scroll Animations: Využij knihovny jako Framer Motion nebo GSAP pro plynulé odkrývání obsahu (reveal efekty) při skrolování.
+
+Dark/Light Mode: Přidání přepínače mezi tmavým a světlým režimem je u vývojářských studií dnes standard, který ukazuje, že si hraješ s detaily.
+
+5. Jasná přidaná hodnota (Value Proposition)
+V textu píšeš „Vystupte z davu šedých šablon“. To je dobré, ale zkus být ještě víc zaměřený na klientův zisk.
+
+Místo: „Tvoříme moderní weby.“
+
+Zkus: „Stavíme weby, které se stanou vaším nejlepším obchodníkem 24/7.“ – Tím říkáš, že ti nejde jen o hezké pixely, ale o jejich byznys.
+
+6. Sekce FAQ (Budování důvěry)
+Přidej sekci s nejčastějšími dotazy. Tím dopředu odpovíš na obavy (např. „Jak dlouho to trvá?“, „Budu moct web sám editovat?“, „Co když budu chtít po roce změnu?“). Působí to tak, že máš zkušenosti a víš, co klienty trápí.
+
+Shrnutí: Web má skvělý moderní feeling. Aby působil jako studio, kterému se dá „fakt věřit“, potřebuješ tam dostat konkrétní lidi, konkrétní výsledky a pocit, že máš vyladěný proces od A do Z.

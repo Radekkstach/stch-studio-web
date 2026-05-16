@@ -81,14 +81,18 @@
       #60a5fa,
       #818cf8,
       #a855f7,
+      #ec4899,
+      #818cf8,
       #60a5fa
     );
-    background-size: 200% 200%;
+    background-size: 300% 300%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    background-position: 40% 50%;
+    animation: gradient-float 4s ease-in-out infinite;
+    padding: 0.25em 0.05em;
+    margin: -0.25em -0.05em;
   }
   .animated-gradient-text2 {
     background-image: linear-gradient(
@@ -96,18 +100,20 @@
       #60a5fa,
       #818cf8,
       #a855f7,
+      #ec4899,
+      #818cf8,
       #60a5fa
     );
-    background-size: 200% 200%;
+    background-size: 300% 300%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    background-position: 70% 50%;
+    animation: gradient-float 4s ease-in-out infinite 1.5s;
   }
   .hero-rotating-word {
     display: inline-block;
-    animation: hero-word-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: hero-word-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1), gradient-float 4s ease-in-out infinite;
     will-change: transform, opacity;
   }
   .hero-rotating-line {
@@ -188,9 +194,7 @@
 
 @media (max-width: 640px) {
   .animated-gradient-text {
-    animation: none;
-    background-position: 50% 50%;
-    background-size: 100% 100%;
+    animation: gradient-float 6s ease-in-out infinite;
   }
 
   .hero-static-word {

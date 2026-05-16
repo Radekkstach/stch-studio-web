@@ -31,13 +31,30 @@ const stripLangPrefix = (pathname) => {
   return pathname;
 };
 
+const SEGMENT_MAP = {
+  cs: { archiv: "archive", projekt: "project" },
+  en: { archive: "archiv", project: "projekt" },
+};
+
+const translateSegments = (cleanPath, fromLang, toLang) => {
+  if (fromLang === toLang) return cleanPath;
+  const map = SEGMENT_MAP[fromLang] ?? {};
+  return cleanPath
+    .split("/")
+    .map((seg) => map[seg] ?? seg)
+    .join("/");
+};
+
 export const buildLangPath = (path, lang) => {
+  const fromLang = langFromPathname(path || "/");
   const clean = stripLangPrefix(path || "/");
+  const translated = translateSegments(clean, fromLang, lang);
+
   if (lang === DEFAULT_LANG) {
-    return clean === "" ? "/" : clean;
+    return translated === "" ? "/" : translated;
   }
-  if (clean === "/" || clean === "") return `/${lang}`;
-  return `/${lang}${clean}`;
+  if (translated === "/" || translated === "") return `/${lang}`;
+  return `/${lang}${translated}`;
 };
 
 export const resolveByPath = (key, dict) => {

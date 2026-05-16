@@ -67,11 +67,12 @@ const Projects = () => {
                   key={project.id}
                   className="project-card flex-shrink-0 w-full md:w-[60vw] md:px-8 flex flex-col justify-center"
                 >
-                  {/* Odkaz na konkrétní projekt (externí, např. na hotový web) */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={
+                      lang === "en"
+                        ? `/en/archive/project/${project.slug}`
+                        : `/archiv/projekt/${project.slug}`
+                    }
                     className="group cursor-pointer block"
                   >
                     {/* Obrázek s overlayem */}
@@ -104,7 +105,7 @@ const Projects = () => {
                         {project.description}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

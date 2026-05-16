@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import logoImg from "../assets/nav_logo.png";
@@ -58,6 +59,8 @@ const Navbar = () => {
   const menuRef = useRef(null);
   const { theme, toggleTheme } = useTheme();
   const { t, lang, setLang } = useTranslation();
+  const location = useLocation();
+  const isHome = location.pathname === "/" || location.pathname === "/en";
 
   const navLinks = [
     { id: "Projekty", label: t("nav.projects") },
@@ -123,6 +126,12 @@ const Navbar = () => {
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
+    if (!isHome) {
+      setIsMobileMenuOpen(false);
+      const base = lang === "en" ? "/en" : "/";
+      window.location.href = base + "#" + id;
+      return;
+    }
     scrollToSection(id, {
       closeMenu: () => setIsMobileMenuOpen(false),
       delay: isMobileMenuOpen ? 300 : 0,
@@ -161,17 +170,28 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-5 lg:gap-8">
             <div className="flex items-center gap-8">
-              {navLinks.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleNavClick(e, item.id)}
-                  className="relative text-sm font-medium text-foreground/70 hover:text-foreground transition-colors py-2 group"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-indigo-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full" />
-                </a>
-              ))}
+              {navLinks.map((item) =>
+                item.path ? (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="relative text-sm font-medium text-foreground/70 hover:text-foreground transition-colors py-2 group"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-indigo-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full" />
+                  </Link>
+                ) : (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className="relative text-sm font-medium text-foreground/70 hover:text-foreground transition-colors py-2 group"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-indigo-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full" />
+                  </a>
+                ),
+              )}
             </div>
 
             <div className="flex items-center gap-2">
@@ -241,16 +261,27 @@ const Navbar = () => {
             {t("nav.menu")}
           </p>
 
-          {navLinks.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => handleNavClick(e, item.id)}
-              className="mobile-link text-5xl sm:text-6xl font-bold text-foreground/50 hover:text-foreground transition-colors duration-300 w-fit"
-            >
-              {item.label}.
-            </a>
-          ))}
+          {navLinks.map((item) =>
+            item.path ? (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mobile-link text-5xl sm:text-6xl font-bold text-foreground/50 hover:text-foreground transition-colors duration-300 w-fit"
+              >
+                {item.label}.
+              </Link>
+            ) : (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                className="mobile-link text-5xl sm:text-6xl font-bold text-foreground/50 hover:text-foreground transition-colors duration-300 w-fit"
+              >
+                {item.label}.
+              </a>
+            ),
+          )}
 
           <div className="mobile-link mt-12 w-full h-[1px] bg-foreground/10" />
 

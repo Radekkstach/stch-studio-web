@@ -12,7 +12,7 @@ import { useGSAP } from "@gsap/react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import CookieBanner from "./components/CookieBanner";
+import PrivacyNotice from "./components/PrivacyNotice";
 import { LanguageProvider } from "./i18n";
 import {
   detectBrowserLang,
@@ -29,6 +29,7 @@ const Projects = lazy(() => import("./components/Projects"));
 const Contact = lazy(() => import("./components/Contact"));
 const Studio = lazy(() => import("./components/Studio"));
 const Archive = lazy(() => import("./components/Archive"));
+const CaseStudy = lazy(() => import("./components/CaseStudy"));
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -40,7 +41,6 @@ const Home = () => {
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-background">
       <div className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30 selection:text-indigo-200">
-        <Navbar />
         <main>
           <div id="hero">
             <Hero />
@@ -112,6 +112,7 @@ const InitialLangRedirect = () => {
 const LocalizedRoutes = () => (
   <LanguageProvider>
     <InitialLangRedirect />
+    <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
@@ -119,6 +120,14 @@ const LocalizedRoutes = () => (
         element={
           <Suspense fallback={sectionFallback(640)}>
             <Archive />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/archiv/projekt/:slug"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <CaseStudy />
           </Suspense>
         }
       />
@@ -131,8 +140,16 @@ const LocalizedRoutes = () => (
           </Suspense>
         }
       />
+      <Route
+        path="/en/archive/project/:slug"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <CaseStudy />
+          </Suspense>
+        }
+      />
     </Routes>
-    <CookieBanner />
+    <PrivacyNotice />
   </LanguageProvider>
 );
 

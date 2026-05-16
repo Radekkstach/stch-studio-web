@@ -3,6 +3,7 @@ const cs = {
     projects: "Projekty",
     services: "Služby",
     studio: "Studio",
+    about: "O mně",
     contact: "Kontakt",
     writeUs: "Napsat nám",
     menu: "Navigace",
@@ -17,7 +18,7 @@ const cs = {
     badge: "Premium Web Development",
     titleStatic: "Budoucnost",
     titleEnd: "začíná právě teď",
-    rotating: ["webu", "inovací", "vaší značky", "internetu"],
+    rotating: ["webu", "inovací", "vaší značky", "digitálu", "podnikání", "e-commerce"],
     description:
       "Vystupte z davu šedých šablon. Stavíme interaktivní zážitky, které si vaši zákazníci zapamatují na první pohled.",
     ctaPrimary: "Chci se odlišit",
@@ -160,6 +161,45 @@ const cs = {
     description:
       "Prozkoumejte všechny naše dosavadní práce. Od malých prezentací až po komplexní webové aplikace.",
     totalLabel: "Celkem prací",
+    viewDetail: "Zobrazit case study",
+  },
+
+  caseStudy: {
+    backToArchive: "Zpět do archivu",
+    visitLive: "Zobrazit živý web",
+    client: "Klient",
+    year: "Rok",
+    timeline: "Doba realizace",
+    category: "Kategorie",
+    tech: "Tech stack",
+    challengeTitle: "Výzva",
+    approachTitle: "Řešení",
+    noCaseStudy:
+      "Pro tento projekt zatím chystáme detailní case study. Mezitím si můžeš prohlédnout živý web.",
+    nextProject: "Další projekt",
+    prevProject: "Předchozí projekt",
+    notFound: {
+      title: "Projekt nenalezen",
+      description: "Tento projekt v archivu neexistuje. Vrať se prosím zpět.",
+      action: "Zpět do archivu",
+    },
+  },
+
+  aboutMe: {
+    back: "Zpět domů",
+    eyebrow: "O mně",
+    name: "Radek Stach",
+    role: "Web Designer & Developer",
+    location: "Třebíč, Česká republika",
+    intro:
+      "Zakladatel STCH Studia. Stavím weby pro firmy, které chtějí být vidět — čistě, rychle a bez zbytečného balastu.",
+    storyTitle: "Kdo jsem",
+    storyBody:
+      "Pracuji sám, s malým okruhem klientů. Každému projektu věnuji plnou pozornost od prvního konceptu po spuštění.\n\nWeb není jen vizitka. Správně postavený web přivádí zákazníky, buduje důvěru a odlišuje vás od konkurence. Na tohle se soustředím.",
+    ctaTitle: "Pojďme postavit něco, co funguje.",
+    ctaText:
+      "Máte projekt nebo jen nápad? Napište mi a zjistíme, jak ho proměnit ve web, na který budete hrdí.",
+    ctaButton: "Napsat mi",
   },
 
   cookies: {
