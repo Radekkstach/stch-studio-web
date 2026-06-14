@@ -3,6 +3,8 @@ const cs = {
     projects: "Projekty",
     services: "Služby",
     studio: "Studio",
+    pricing: "Ceník",
+    mystch: "mySTCH",
     about: "O mně",
     contact: "Kontakt",
     writeUs: "Napsat nám",
@@ -15,12 +17,12 @@ const cs = {
   },
 
   hero: {
-    badge: "Premium Web Development",
+    badge: "Weby a aplikace na míru",
     titleStatic: "Budoucnost",
     titleEnd: "začíná právě teď",
-    rotating: ["webu", "inovací", "vaší značky", "digitálu", "podnikání", "e-commerce"],
+    rotating: ["webu", "vaší značky", "podnikání", "vašeho e-shopu", "značky", "firmy"],
     description:
-      "Vystupte z davu šedých šablon. Stavíme interaktivní zážitky, které si vaši zákazníci zapamatují na první pohled.",
+      "Většina webů vypadá jako tisíc dalších. My vám postavíme takový, který si zákazník zapamatá — a hlavně u vás nechá poptávku nebo objednávku.",
     ctaPrimary: "Chci se odlišit",
     ctaSecondary: "Prozkoumat projekty",
   },
@@ -30,47 +32,132 @@ const cs = {
   },
 
   services: {
-    eyebrow: "Naše Expertíza",
-    title: ["Komplexní přístup", "k digitálu."],
+    eyebrow: "Co děláme",
+    title: ["Vše kolem webu", "na jednom místě."],
     items: [
       {
         id: "01",
-        title: "Web Design & Vývoj",
+        title: "Weby na míru",
         description:
-          "Tvoříme digitální zážitky, které si návštěvníci zapamatují. Od wireframu po pixel-perfect kód. Specializujeme se na React a Next.js pro maximální rychlost.",
+          "Navrhneme a postavíme web přesně podle vašeho podnikání — od prvního nápadu až po spuštění. Žádné šablony, ze kterých čiší, že je má každý druhý. Vše originální a hlavně rychlé.",
       },
       {
         id: "02",
-        title: "E-commerce Řešení",
+        title: "E-shopy",
         description:
-          "E-shopy postavené na psychologii prodeje. Nejde nám jen o košík, ale o celou cestu zákazníka. Optimalizujeme konverzní poměry a uživatelskou přívětivost.",
+          "Postavíme e-shop, který se zákazníkovi snadno používá a přirozeně ho dovede až k objednávce. Méně tápání v košíku, víc dokončených nákupů.",
       },
       {
         id: "03",
-        title: "Digitální Optimalizace",
+        title: "Rychlost a viditelnost",
         description:
-          "Maximální výkon, SEO a rychlost. Ladíme detaily, které konkurence přehlíží. Zajistíme, abyste byli na Googlu vidět a web se načítal bleskově.",
+          "Postaráme se, aby vás zákazníci našli na Googlu a aby se web načítal okamžitě. Pomalý web totiž lidi odežene dřív, než si u vás stihnou cokoliv přečíst.",
       },
     ],
   },
 
   studio: {
-    eyebrow: "Studio Philosophy",
+    eyebrow: "Jak přemýšlíme",
     titleStart: "Spojujeme",
-    titleHighlight: "umění designu",
-    titleEnd: "s logikou programování.",
+    titleHighlight: "krásný design",
+    titleEnd: "s tím, co reálně funguje.",
     pillars: [
       {
-        title: "Design & Estetika",
-        desc: "Nevytváříme jen weby, tvoříme digitální architekturu. Každý pixel má svůj účel. Minimalismus, který není prázdný, ale funkční.",
+        title: "Přehledný design",
+        desc: "Neděláme jen hezké weby. Děláme weby, které dávají smysl — přehledné, jednoduché na používání a sladěné s vaší značkou. Návštěvník se hned zorientuje a ví, co má udělat.",
       },
       {
-        title: "Technologie & Rychlost",
-        desc: "Vteřiny rozhodují. Používáme Next.js a React pro okamžité načítání. Žádné staré šablony, jen čistý, moderní kód.",
+        title: "Rychlost",
+        desc: "Vteřiny rozhodují. Stavíme weby tak, aby se načetly okamžitě, na mobilu i na počítači. Pomalý web zákazníky ztrácí — a často o tom ani nevíte.",
       },
       {
-        title: "Byznys & Růst",
-        desc: "Krása bez výsledků je zbytečná. Zaměřujeme se na konverze, uživatelskou cestu (UX) a návratnost vaší investice.",
+        title: "Výsledky",
+        desc: "Hezký web sám o sobě nestačí. Soustředíme se hlavně na to, aby vám web reálně vydělával — přiváděl poptávky, objednávky a nové zákazníky.",
+      },
+    ],
+  },
+
+  cms: {
+    eyebrow: "Vlastní administrace",
+    title: ["Web si spravujete", "sami."],
+    lead:
+      "Ke každému webu dostanete vlastní jednoduchou administraci mySTCH. Text i fotky si změníte sami, kdykoliv potřebujete — žádné volání programátorovi za každou maličkost.",
+    points: [
+      {
+        title: "Jedno heslo",
+        desc: "Přihlásíte se jedním heslem. Žádné složité účty ani školení.",
+      },
+      {
+        title: "Bez měsíčních poplatků",
+        desc: "Za úpravy obsahu neplatíte. Měníte, kolik chcete.",
+      },
+      {
+        title: "Změny na pár kliknutí",
+        desc: "Upravíte text nebo fotku a jedním tlačítkem to pustíte na web.",
+      },
+    ],
+    cta: "Chci web, který si spravím sám",
+    more: "Prohlédnout administraci",
+    previewLabel: "náhled administrace",
+  },
+
+  pricing: {
+    eyebrow: "Ceník",
+    title: ["Orientační ceny", "bez překvapení."],
+    lead:
+      "Každý web je jiný, proto jsou ceny orientační. Přesnou nabídku dostanete po krátké konzultaci zdarma — žádné skryté poplatky.",
+    tiers: [
+      {
+        name: "Web na míru",
+        price: "od 10 000 Kč",
+        desc: "Jednodušší web na míru — vizitka nebo prezentace firmy, včetně vlastní administrace.",
+        features: ["Originální návrh, žádná šablona", "Rychlé a vyladěné na mobil", "Vlastní administrace obsahu"],
+        exampleSlug: "bar-praha",
+      },
+      {
+        name: "Vícestránkový web",
+        price: "od 20 000 Kč",
+        desc: "Rozsáhlejší web s více sekcemi, blogem nebo ve více jazycích.",
+        features: ["Vše z webu na míru", "Více stránek, blog, jazyky", "Napojení rezervací a dalších služeb"],
+        exampleSlug: "octagon-trebic",
+      },
+      {
+        name: "Aplikace na míru",
+        price: "od 40 000 Kč",
+        desc: "Webová aplikace nebo e-shop s funkcemi přesně podle vašeho podnikání.",
+        features: ["Aplikace nebo e-shop na míru", "Funkce přesně podle potřeb", "Podpora i rozvoj po spuštění"],
+      },
+    ],
+    note: "K tomu provoz: doména + hosting od 500 Kč/rok. Správu webu po spuštění mám v ceně.",
+    cta: "Chci nezávaznou nabídku",
+    exampleLabel: "Ukázka",
+    exampleSoon: "Ukázka už brzy",
+  },
+
+  process: {
+    eyebrow: "Jak to probíhá",
+    title: ["Od prvního nápadu", "k hotovému webu."],
+    lead: "Žádné měsíce čekání a složitý proces. U menších webů bývá hotovo v řádu dní.",
+    steps: [
+      {
+        num: "01",
+        title: "Ozvete se",
+        desc: "Napíšete nebo zavoláte a probereme, k čemu má web sloužit a co od něj čekáte. Nezávazně a zdarma.",
+      },
+      {
+        num: "02",
+        title: "Návrh",
+        desc: "Připravím první návrh. Buď mi dáte volnou ruku a já vám pošlu varianty na výběr, nebo máte jasnou představu a tu společně doladíme do detailu.",
+      },
+      {
+        num: "03",
+        title: "Stavba",
+        desc: "Web postavím, naplním obsahem a vyladím na mobil i počítač. U menších webů obvykle během několika dní.",
+      },
+      {
+        num: "04",
+        title: "Spuštění a předání",
+        desc: "Web spustíme a předám vám vlastní administraci, ve které si text i fotky kdykoliv sami upravíte. A jsem tu i potom, když budete cokoliv potřebovat.",
       },
     ],
   },
@@ -89,7 +176,7 @@ const cs = {
       email: "Email",
       emailPlaceholder: "jan@firma.cz",
       budget: "Orientační rozpočet",
-      budgetOptions: ["Do 50k Kč", "50k - 100k Kč", "100k - 200k Kč", "200k+ Kč"],
+      budgetOptions: ["Do 20 000 Kč", "20 000 – 50 000 Kč", "50 000 – 100 000 Kč", "100 000 Kč+"],
       about: "O projektu",
       aboutPlaceholder: "Potřebuji redesign webu pro realitní kancelář...",
       submit: "Odeslat poptávku",
@@ -195,10 +282,60 @@ const cs = {
       "Zakladatel STCH Studia. Stavím weby pro firmy, které chtějí být vidět — čistě, rychle a bez zbytečného balastu.",
     storyTitle: "Kdo jsem",
     storyBody:
-      "Pracuji sám, s malým okruhem klientů. Každému projektu věnuji plnou pozornost od prvního konceptu po spuštění.\n\nWeb není jen vizitka. Správně postavený web přivádí zákazníky, buduje důvěru a odlišuje vás od konkurence. Na tohle se soustředím.",
+      "Beru weby jako řemeslo. Každému projektu věnuji plnou pozornost od prvního nápadu až po spuštění — a jsem k dispozici i potom, když potřebujete cokoliv doladit nebo doplnit.\n\nWeb není jen vizitka. Správně postavený web přivádí zákazníky, buduje důvěru a odlišuje vás od konkurence. Přesně na tohle se soustředím.",
     ctaTitle: "Pojďme postavit něco, co funguje.",
     ctaText:
       "Máte projekt nebo jen nápad? Napište mi a zjistíme, jak ho proměnit ve web, na který budete hrdí.",
+    ctaButton: "Napsat mi",
+  },
+
+  myStch: {
+    back: "Zpět domů",
+    eyebrow: "Vlastní administrace",
+    title: ["mySTCH — web si", "upravíte sami."],
+    lead:
+      "Ke každému webu dostanete vlastní administraci. Žádné technické znalosti, žádné měsíční poplatky za úpravy. Přihlásíte se heslem, změníte text nebo fotky a jedním tlačítkem to pustíte na web.",
+    ctaTop: "Chci takový web",
+    urlBar: "vasefirma.cz/cms",
+    screens: [
+      {
+        label: "Přehled",
+        caption: "Všechen obsah — články, reference, stránky — přehledně na jednom místě.",
+      },
+      {
+        label: "Úprava obsahu",
+        caption: "Text přepíšete jako ve Wordu, fotku vyměníte na pár kliknutí.",
+      },
+      {
+        label: "Fotky",
+        caption: "Fotku nahrajete a doplníte popis. Sama se zmenší, ať je web rychlý.",
+      },
+      {
+        label: "Nastavení",
+        caption: "Telefon, adresa, otevírací doba i odkazy — vše na jednom místě a po ruce.",
+      },
+    ],
+    previewLabel: "náhled administrace",
+    howTitle: "Jak to funguje",
+    steps: [
+      {
+        num: "01",
+        title: "Přihlásíte se heslem",
+        desc: "Jedno heslo, žádné zakládání účtů ani složité přihlašování.",
+      },
+      {
+        num: "02",
+        title: "Upravíte obsah",
+        desc: "Změníte text, vyměníte fotku nebo přidáte novou položku.",
+      },
+      {
+        num: "03",
+        title: "Pustíte to na web",
+        desc: "Kliknete na „Propsat na web“ a změny jsou během chvíle živě.",
+      },
+    ],
+    ctaTitle: "Chcete web, který si spravíte sami?",
+    ctaText: "Ozvěte se a ukážu vám administraci naživo na vašem budoucím webu.",
     ctaButton: "Napsat mi",
   },
 

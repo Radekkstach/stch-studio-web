@@ -1,6 +1,4 @@
 import Img1 from "../assets/jmlmont.webp";
-import Img2 from "../assets/kryptoterminal.webp";
-import Img3 from "../assets/aurawellnes.webp";
 import Img4 from "../assets/octagontrebic.webp";
 import Img5 from "../assets/barpraha.webp";
 
@@ -73,7 +71,7 @@ export const projects = [
     slug: "octagon-trebic",
     image: Img4,
     year: "2026",
-    link: "https://stachradek-octagon.netlify.app/",
+    link: "https://posilovnaoctagon.cz",
     title: { cs: "Octagon Třebíč", en: "Octagon Třebíč" },
     category: { cs: "Web", en: "Website" },
     description: {
@@ -96,32 +94,6 @@ export const projects = [
         cs: "Tmavý design s dynamickými GSAP animacemi, plné HD foto- a video-obsah, jasná hierarchie sekcí (trenéři, ceník, rozvrh, kontakt). Vše rychle načítá i na slabším mobilním připojení.",
         en: "Dark design with dynamic GSAP animations, full-HD photo and video content, clear hierarchy of sections (coaches, pricing, schedule, contact). Everything loads fast even on a weaker mobile connection.",
       },
-    },
-  },
-  {
-    id: 4,
-    slug: "aura-wellness",
-    image: Img3,
-    year: "2026",
-    link: "https://stachradek-wellness.netlify.app/",
-    title: { cs: "Aura - Wellness", en: "Aura - Wellness" },
-    category: { cs: "Moderní SPA", en: "Modern SPA" },
-    description: {
-      cs: "Zaměření na mikro-interakce a plynulý uživatelský zážitek.",
-      en: "A focus on micro-interactions and a smooth user experience.",
-    },
-  },
-  {
-    id: 5,
-    slug: "krypto-terminal",
-    image: Img2,
-    year: "2026",
-    link: "https://stachradek-krypto.netlify.app/",
-    title: { cs: "Krypto Terminál", en: "Crypto Terminal" },
-    category: { cs: "Development", en: "Development" },
-    description: {
-      cs: "Aplikace s grafy kryptoměn.",
-      en: "App with cryptocurrency charts.",
     },
   },
 ];

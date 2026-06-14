@@ -3,7 +3,8 @@
     "allow": [
       "Bash(grep -E \"\\\\.cursor|CLAUDE|\\\\.md$\")",
       "Bash(npm run *)",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "PowerShell(npm run *)"
     ]
   }
 }

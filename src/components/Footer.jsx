@@ -8,6 +8,7 @@ import {
   MapPin,
   X,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoWhite from "../assets/nav_logo.png";
 import { scrollToSection } from "../utils/scrollToSection";
 import { reopenBanner } from "../utils/consent";
@@ -15,7 +16,8 @@ import { useTranslation } from "../i18n";
 
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
+  const aboutPath = lang === "en" ? "/en/about" : "/o-mne";
 
   const openModal = () => setModalOpen(true);
 
@@ -134,6 +136,12 @@ const Footer = () => {
 
               <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
                 <div className="flex gap-6 text-xs text-muted">
+                  <Link
+                    to={aboutPath}
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {t("nav.about")}
+                  </Link>
                   <button
                     onClick={openModal}
                     className="transition-colors hover:text-foreground"

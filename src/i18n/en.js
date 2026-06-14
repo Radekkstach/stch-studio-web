@@ -3,6 +3,8 @@ const en = {
     projects: "Projects",
     services: "Services",
     studio: "Studio",
+    pricing: "Pricing",
+    mystch: "mySTCH",
     about: "About",
     contact: "Contact",
     writeUs: "Get in touch",
@@ -15,12 +17,12 @@ const en = {
   },
 
   hero: {
-    badge: "Premium Web Development",
+    badge: "Custom websites & apps",
     titleStatic: "The future of",
     titleEnd: "starts right now",
-    rotating: ["the web", "innovation", "your brand", "digital", "your business", "e-commerce"],
+    rotating: ["the web", "your brand", "your business", "your store", "your brand", "your company"],
     description:
-      "Step out of the sea of grey templates. We build interactive experiences your customers will remember at first glance.",
+      "Most websites look like a thousand others. We'll build you one your customers actually remember — and one that gets them to send an enquiry or place an order.",
     ctaPrimary: "Make me stand out",
     ctaSecondary: "Explore projects",
   },
@@ -30,47 +32,132 @@ const en = {
   },
 
   services: {
-    eyebrow: "Our Expertise",
-    title: ["A complete approach", "to the digital world."],
+    eyebrow: "What we do",
+    title: ["Everything around the web", "in one place."],
     items: [
       {
         id: "01",
-        title: "Web Design & Development",
+        title: "Custom websites",
         description:
-          "We craft digital experiences visitors remember. From wireframe to pixel-perfect code. We specialise in React and Next.js for blazing-fast performance.",
+          "We design and build your website exactly around your business — from the first idea to launch. No off-the-shelf templates that everyone else is using. Everything original, and above all fast.",
       },
       {
         id: "02",
-        title: "E-commerce Solutions",
+        title: "Online stores",
         description:
-          "Online stores built around sales psychology. It's not just the cart — it's the whole customer journey. We optimise conversion rates and usability.",
+          "We build a store that's easy for customers to use and naturally guides them all the way to checkout. Less fumbling in the cart, more completed orders.",
       },
       {
         id: "03",
-        title: "Digital Optimisation",
+        title: "Speed & visibility",
         description:
-          "Maximum performance, SEO and speed. We tune the details competitors overlook. We make sure you show up on Google and the site loads instantly.",
+          "We make sure customers find you on Google and that your site loads instantly. A slow website drives people away before they even read anything.",
       },
     ],
   },
 
   studio: {
-    eyebrow: "Studio Philosophy",
+    eyebrow: "How we think",
     titleStart: "We combine",
-    titleHighlight: "the art of design",
-    titleEnd: "with the logic of code.",
+    titleHighlight: "beautiful design",
+    titleEnd: "with what actually works.",
     pillars: [
       {
-        title: "Design & Aesthetics",
-        desc: "We don't just build websites — we build digital architecture. Every pixel has a purpose. Minimalism that's never empty, always functional.",
+        title: "Clear design",
+        desc: "We don't just build pretty websites. We build sites that make sense — clean, easy to use and aligned with your brand. Visitors instantly get their bearings and know what to do.",
       },
       {
-        title: "Technology & Speed",
-        desc: "Seconds matter. We use Next.js and React for instant loading. No legacy templates, just clean, modern code.",
+        title: "Speed",
+        desc: "Seconds matter. We build sites that load instantly, on mobile and desktop alike. A slow website loses customers — and often you never even know it.",
       },
       {
-        title: "Business & Growth",
-        desc: "Beauty without results is pointless. We focus on conversions, the user journey (UX) and return on your investment.",
+        title: "Results",
+        desc: "A pretty website alone isn't enough. We focus above all on making your site actually pay off — bringing in enquiries, orders and new customers.",
+      },
+    ],
+  },
+
+  cms: {
+    eyebrow: "Your own admin",
+    title: ["Manage the website", "yourself."],
+    lead:
+      "With every website you get your own simple admin panel, mySTCH. Change text and photos yourself, whenever you need — no calling the developer for every little thing.",
+    points: [
+      {
+        title: "One password",
+        desc: "Log in with a single password. No complex accounts or training.",
+      },
+      {
+        title: "No monthly fees",
+        desc: "Editing content costs nothing. Change as much as you like.",
+      },
+      {
+        title: "Changes in a few clicks",
+        desc: "Edit text or a photo and push it live with one button.",
+      },
+    ],
+    cta: "I want a site I can manage myself",
+    more: "See the admin panel",
+    previewLabel: "admin preview",
+  },
+
+  pricing: {
+    eyebrow: "Pricing",
+    title: ["Ballpark prices", "with no surprises."],
+    lead:
+      "Every website is different, so these prices are indicative. You'll get an exact quote after a short free consultation — no hidden fees.",
+    tiers: [
+      {
+        name: "Custom website",
+        price: "from €400",
+        desc: "A simpler custom website — a one-pager or company presentation, incl. your own admin.",
+        features: ["Original design, no template", "Fast and tuned for mobile", "Your own content admin"],
+        exampleSlug: "bar-praha",
+      },
+      {
+        name: "Multi-page website",
+        price: "from €800",
+        desc: "A larger site with more sections, a blog or in several languages.",
+        features: ["Everything in the custom website", "More pages, blog, languages", "Reservations and other integrations"],
+        exampleSlug: "octagon-trebic",
+      },
+      {
+        name: "Custom app",
+        price: "from €1,600",
+        desc: "A custom web application or online store with features built around your business.",
+        features: ["Custom app or online store", "Features tailored to your needs", "Support and growth after launch"],
+      },
+    ],
+    note: "Plus running costs: domain + hosting from €20/year. Site maintenance after launch is on me.",
+    cta: "Get a no-obligation quote",
+    exampleLabel: "Example",
+    exampleSoon: "Example coming soon",
+  },
+
+  process: {
+    eyebrow: "How it works",
+    title: ["From the first idea", "to a finished website."],
+    lead: "No months of waiting and no complicated process. For smaller sites it's usually done within days.",
+    steps: [
+      {
+        num: "01",
+        title: "Get in touch",
+        desc: "Drop me a message or call and we'll talk through what the site is for and what you expect from it. No strings attached, free of charge.",
+      },
+      {
+        num: "02",
+        title: "The design",
+        desc: "I prepare the first design. Either you give me a free hand and I send you options to choose from, or you have a clear idea and we fine-tune it down to the detail together.",
+      },
+      {
+        num: "03",
+        title: "The build",
+        desc: "I build the site, fill it with content and polish it for mobile and desktop alike. For smaller sites, usually within a few days.",
+      },
+      {
+        num: "04",
+        title: "Launch & handover",
+        desc: "We launch the site and I hand over your own admin panel, where you can edit text and photos yourself any time. And I'm around afterwards whenever you need anything.",
       },
     ],
   },
@@ -90,10 +177,10 @@ const en = {
       emailPlaceholder: "john@company.com",
       budget: "Approximate budget",
       budgetOptions: [
-        "Under €2k",
-        "€2k - €4k",
-        "€4k - €8k",
-        "€8k+",
+        "Under €800",
+        "€800 – €2,000",
+        "€2,000 – €4,000",
+        "€4,000+",
       ],
       about: "About the project",
       aboutPlaceholder: "I need a website redesign for a real-estate agency...",
@@ -200,10 +287,60 @@ const en = {
       "Founder of STCH Studio. I build websites for businesses that want to stand out — clean, fast and without the noise.",
     storyTitle: "Who I am",
     storyBody:
-      "I work solo, with a small group of clients. Every project gets my full attention from the first concept to launch.\n\nA website is more than a business card. Built right, it brings in customers, builds trust and sets you apart. That's what I focus on.",
+      "I treat websites as a craft. Every project gets my full attention from the first idea to launch — and I'm around afterwards too, whenever you need to tweak or add something.\n\nA website is more than a business card. Built right, it brings in customers, builds trust and sets you apart. That's exactly what I focus on.",
     ctaTitle: "Let's build something that works.",
     ctaText:
       "Have a project or just an idea? Write to me and we'll figure out how to turn it into a site you're proud of.",
+    ctaButton: "Write to me",
+  },
+
+  myStch: {
+    back: "Back home",
+    eyebrow: "Your own admin",
+    title: ["mySTCH — manage the", "site yourself."],
+    lead:
+      "With every website you get your own admin panel. No technical skills, no monthly fees for edits. Log in with a password, change text or photos and push it live with one button.",
+    ctaTop: "I want a site like this",
+    urlBar: "yourcompany.com/cms",
+    screens: [
+      {
+        label: "Overview",
+        caption: "All your content — articles, references, pages — neatly in one place.",
+      },
+      {
+        label: "Editing",
+        caption: "Rewrite text like in Word, swap a photo in a couple of clicks.",
+      },
+      {
+        label: "Photos",
+        caption: "Upload a photo and add a description. It shrinks automatically to keep the site fast.",
+      },
+      {
+        label: "Settings",
+        caption: "Phone, address, opening hours and links — all in one handy place.",
+      },
+    ],
+    previewLabel: "admin preview",
+    howTitle: "How it works",
+    steps: [
+      {
+        num: "01",
+        title: "Log in with a password",
+        desc: "One password, no account setup or complicated sign-in.",
+      },
+      {
+        num: "02",
+        title: "Edit the content",
+        desc: "Change text, swap a photo or add a new item.",
+      },
+      {
+        num: "03",
+        title: "Push it live",
+        desc: "Click “Publish” and your changes are live within moments.",
+      },
+    ],
+    ctaTitle: "Want a site you can manage yourself?",
+    ctaText: "Get in touch and I'll show you the admin live on your future website.",
     ctaButton: "Write to me",
   },
 

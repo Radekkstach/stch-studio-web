@@ -1,15 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { ArrowLeft, MapPin, Layout, Zap, TrendingUp } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import portrait from "../assets/radek.png";
 import { useTranslation } from "../i18n";
+
+const PILLAR_ICONS = [Layout, Zap, TrendingUp];
 
 const AboutMe = () => {
   const { t, lang } = useTranslation();
   const containerRef = useRef(null);
   const homePath = lang === "en" ? "/en" : "/";
   const contactHref = lang === "en" ? "/en#Kontakt" : "/#Kontakt";
+
+  const pillars = t("studio.pillars").map((p, idx) => ({
+    ...p,
+    icon: PILLAR_ICONS[idx] || Layout,
+  }));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,6 +46,18 @@ const AboutMe = () => {
         stagger: 0.1,
         ease: "power3.out",
         delay: 0.3,
+      });
+      gsap.from(".am-pillar", {
+        y: 28,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".am-pillars",
+          start: "top 82%",
+          toggleActions: "play none none none",
+        },
       });
       gsap.from(".am-cta", {
         y: 32,
@@ -85,11 +105,12 @@ const AboutMe = () => {
           {/* Portrait */}
           <div className="am-portrait">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-foreground/10 bg-foreground/[0.03]">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-muted/25">
-                <div className="h-24 w-24 rounded-full bg-foreground/8" />
-                <span className="font-mono text-xs uppercase tracking-widest">foto</span>
-              </div>
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-indigo-500/8 to-transparent" />
+              <img
+                src={portrait}
+                alt={t("aboutMe.name")}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background/40 to-transparent" />
             </div>
           </div>
 
@@ -130,6 +151,44 @@ const AboutMe = () => {
         </div>
       </section>
 
+      {/* ── STUDIO PRINCIPLES ── */}
+      <section className="am-pillars container relative z-10 mx-auto mt-24 px-6 md:mt-32">
+        <div className="mb-10 max-w-3xl md:mb-14">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.22em] text-indigo-400">
+            {t("studio.eyebrow")}
+          </p>
+          <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+            {t("studio.titleStart")}{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-indigo-300 dark:from-indigo-400 dark:to-white">
+              {t("studio.titleHighlight")}
+            </span>{" "}
+            {t("studio.titleEnd")}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+          {pillars.map((item, index) => (
+            <div
+              key={index}
+              className="am-pillar group rounded-3xl border border-foreground/10 bg-surface/60 p-8 backdrop-blur-0 transition-[background-color,border-color] duration-300 hover:border-indigo-500/50 hover:bg-foreground/5 md:backdrop-blur-sm"
+            >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-500/10 transition-[background-color,transform] duration-300 group-hover:scale-110 group-hover:bg-indigo-500">
+                <item.icon
+                  size={28}
+                  className="text-indigo-400 transition-colors group-hover:text-white"
+                />
+              </div>
+              <h3 className="mb-4 text-xl font-bold text-foreground">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-muted transition-colors group-hover:text-foreground/80">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="container relative z-10 mx-auto mt-20 px-6 pb-24 md:mt-28 md:pb-32">
         <div className="am-cta relative overflow-hidden rounded-3xl border border-indigo-500/20 bg-indigo-500/5 p-10 text-center md:p-16">
@@ -140,12 +199,12 @@ const AboutMe = () => {
           <p className="relative mx-auto mb-8 max-w-xl text-muted md:text-lg">
             {t("aboutMe.ctaText")}
           </p>
-          <a
-            href={contactHref}
+          <Link
+            to={contactHref}
             className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-sm font-semibold text-background transition-[background-color,transform] duration-300 hover:scale-105 hover:bg-indigo-500 hover:text-white"
           >
             {t("aboutMe.ctaButton")}
-          </a>
+          </Link>
         </div>
       </section>
     </div>

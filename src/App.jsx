@@ -27,9 +27,13 @@ const Footer = lazy(() => import("./components/Footer"));
 const Services = lazy(() => import("./components/Services"));
 const Projects = lazy(() => import("./components/Projects"));
 const Contact = lazy(() => import("./components/Contact"));
-const Studio = lazy(() => import("./components/Studio"));
+const Process = lazy(() => import("./components/Process"));
+const Pricing = lazy(() => import("./components/Pricing"));
+const Cms = lazy(() => import("./components/Cms"));
 const Archive = lazy(() => import("./components/Archive"));
 const CaseStudy = lazy(() => import("./components/CaseStudy"));
+const MyStch = lazy(() => import("./components/MyStch"));
+const AboutMe = lazy(() => import("./components/AboutMe"));
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -38,6 +42,33 @@ const sectionFallback = (minHeight) => (
 );
 
 const Home = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // When arriving with a hash (e.g. from a CTA on /mystch → "/#Kontakt"),
+  // scroll to the target section. Retries because sections are lazy-loaded
+  // and may not exist on the first frame. Once scrolled, the hash is cleared
+  // so later actions (e.g. switching language) don't re-trigger the jump.
+  useEffect(() => {
+    const id = location.hash.replace("#", "");
+    if (!id) return;
+
+    let raf;
+    let tries = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        navigate(location.pathname + location.search, { replace: true });
+        return;
+      }
+      if (tries++ < 60) raf = requestAnimationFrame(tryScroll);
+    };
+    raf = requestAnimationFrame(tryScroll);
+
+    return () => cancelAnimationFrame(raf);
+  }, [location.hash, location.pathname, location.search, navigate]);
+
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-background">
       <div className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30 selection:text-indigo-200">
@@ -57,7 +88,17 @@ const Home = () => {
           </div>
           <div>
             <Suspense fallback={sectionFallback(560)}>
-              <Studio />
+              <Process />
+            </Suspense>
+          </div>
+          <div>
+            <Suspense fallback={sectionFallback(560)}>
+              <Cms />
+            </Suspense>
+          </div>
+          <div>
+            <Suspense fallback={sectionFallback(640)}>
+              <Pricing />
             </Suspense>
           </div>
           <div>
@@ -131,6 +172,22 @@ const LocalizedRoutes = () => (
           </Suspense>
         }
       />
+      <Route
+        path="/mystch"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <MyStch />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/o-mne"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <AboutMe />
+          </Suspense>
+        }
+      />
       <Route path="/en" element={<Home />} />
       <Route
         path="/en/archive"
@@ -145,6 +202,22 @@ const LocalizedRoutes = () => (
         element={
           <Suspense fallback={sectionFallback(640)}>
             <CaseStudy />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/en/mystch"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <MyStch />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/en/about"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <AboutMe />
           </Suspense>
         }
       />
