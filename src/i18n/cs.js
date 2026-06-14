@@ -279,10 +279,10 @@ const cs = {
     role: "Web Designer & Developer",
     location: "Třebíč, Česká republika",
     intro:
-      "Zakladatel STCH Studia. Stavím weby pro firmy, které chtějí být vidět — čistě, rychle a bez zbytečného balastu.",
+      "Zakladatel STCH Studia. Pomáhám firmám prosadit se v digitálním světě — weby, aplikace a řešení na míru. Čistě, rychle a srozumitelně.",
     storyTitle: "Kdo jsem",
     storyBody:
-      "Beru weby jako řemeslo. Každému projektu věnuji plnou pozornost od prvního nápadu až po spuštění — a jsem k dispozici i potom, když potřebujete cokoliv doladit nebo doplnit.\n\nWeb není jen vizitka. Správně postavený web přivádí zákazníky, buduje důvěru a odlišuje vás od konkurence. Přesně na tohle se soustředím.",
+      "Nezůstávám jen u webů — postavím i aplikaci na míru nebo pomůžu zapojit umělou inteligenci tam, kde ušetří čas a práci. Ať přijdete s čímkoliv, najdeme řešení — a u projektu zůstávám i po spuštění.\n\nJdu do každého projektu naplno. Cílem je vybudovat z STCH studio, které pro firmy bude jasná volba.",
     ctaTitle: "Pojďme postavit něco, co funguje.",
     ctaText:
       "Máte projekt nebo jen nápad? Napište mi a zjistíme, jak ho proměnit ve web, na který budete hrdí.",

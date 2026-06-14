@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import logoImg from "../assets/nav_logo.png";
@@ -60,6 +60,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { t, lang, setLang } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/" || location.pathname === "/en";
 
   const navLinks = [
@@ -131,7 +132,7 @@ const Navbar = () => {
     if (!isHome) {
       setIsMobileMenuOpen(false);
       const base = lang === "en" ? "/en" : "/";
-      window.location.href = base + "#" + id;
+      navigate(base + "#" + id);
       return;
     }
     scrollToSection(id, {

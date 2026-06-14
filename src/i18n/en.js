@@ -284,10 +284,10 @@ const en = {
     role: "Web Designer & Developer",
     location: "Třebíč, Czech Republic",
     intro:
-      "Founder of STCH Studio. I build websites for businesses that want to stand out — clean, fast and without the noise.",
+      "Founder of STCH Studio. I help businesses thrive in the digital world — websites, apps and custom solutions. Clean, fast and to the point.",
     storyTitle: "Who I am",
     storyBody:
-      "I treat websites as a craft. Every project gets my full attention from the first idea to launch — and I'm around afterwards too, whenever you need to tweak or add something.\n\nA website is more than a business card. Built right, it brings in customers, builds trust and sets you apart. That's exactly what I focus on.",
+      "I don't stop at websites — I'll build a custom app too, or help you put AI to work where it saves you time and effort. Whatever you come with, we'll find a way — and I stick around after launch.\n\nI go all in on every project. My goal is to grow STCH into the studio businesses turn to first.",
     ctaTitle: "Let's build something that works.",
     ctaText:
       "Have a project or just an idea? Write to me and we'll figure out how to turn it into a site you're proud of.",
