@@ -63,8 +63,6 @@ const MyStch = () => {
     { scope: containerRef },
   );
 
-  const activeImage = screenImages[active];
-
   return (
     <div
       ref={containerRef}
@@ -136,34 +134,46 @@ const MyStch = () => {
               </div>
             </div>
 
-            {/* body */}
+            {/* body — all screens stacked, crossfaded by opacity so
+                they're preloaded and switching never flashes */}
             <div className="relative aspect-[16/10] bg-background">
-              {activeImage ? (
-                <img
-                  key={active}
-                  src={activeImage}
-                  alt={screens[active].label}
-                  className="absolute inset-0 h-full w-full object-cover object-left-top animate-in fade-in duration-300"
-                />
-              ) : (
-                <div
-                  key={active}
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-4 animate-in fade-in duration-300"
-                >
-                  <img
-                    src={mystchLogo}
-                    alt=""
-                    className="h-14 w-14 rounded-2xl object-contain opacity-20"
-                  />
-                  <p className="text-lg font-semibold text-foreground/40">
-                    {screens[active].label}
-                  </p>
-                  <span className="font-mono text-xs uppercase tracking-widest text-muted/30">
-                    {t("myStch.previewLabel")}
-                  </span>
-                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-indigo-500/8 to-transparent" />
-                </div>
-              )}
+              {screens.map((screen, i) => {
+                const image = screenImages[i];
+                const isActive = i === active;
+                return (
+                  <div
+                    key={screen.label}
+                    aria-hidden={!isActive}
+                    className={`absolute inset-0 transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    {image ? (
+                      <img
+                        src={image}
+                        alt={screen.label}
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover object-left-top"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                        <img
+                          src={mystchLogo}
+                          alt=""
+                          className="h-14 w-14 rounded-2xl object-contain opacity-20"
+                        />
+                        <p className="text-lg font-semibold text-foreground/40">
+                          {screen.label}
+                        </p>
+                        <span className="font-mono text-xs uppercase tracking-widest text-muted/30">
+                          {t("myStch.previewLabel")}
+                        </span>
+                        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-indigo-500/8 to-transparent" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
