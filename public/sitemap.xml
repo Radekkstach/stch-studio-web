@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://stchstudio.cz/</loc>
-      <lastmod>2026-02-15</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://stchstudio.cz/archiv</loc>
-      <lastmod>2024-05-20</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://stchstudio.cz/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/o-mne</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/o-mne" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/o-mne" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/mystch</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/mystch" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/mystch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/mystch" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/archiv</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/archiv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/archive" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/archiv" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/archiv/projekt/jml-mont</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/archiv/projekt/jml-mont" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/archive/project/jml-mont" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/archiv/projekt/jml-mont" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/archiv/projekt/bar-praha</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/archiv/projekt/bar-praha" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/archive/project/bar-praha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/archiv/projekt/bar-praha" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stchstudio.cz/archiv/projekt/octagon-trebic</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://stchstudio.cz/archiv/projekt/octagon-trebic" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://stchstudio.cz/en/archive/project/octagon-trebic" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stchstudio.cz/archiv/projekt/octagon-trebic" />
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

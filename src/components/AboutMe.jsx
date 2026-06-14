@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Layout, Zap, TrendingUp } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import portrait from "../assets/radek.png";
+import portrait from "../assets/radek.webp";
 import { useTranslation } from "../i18n";
 
 const PILLAR_ICONS = [Layout, Zap, TrendingUp];
