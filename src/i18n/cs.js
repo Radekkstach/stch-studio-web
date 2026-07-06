@@ -22,7 +22,7 @@ const cs = {
     titleEnd: "začíná právě teď",
     rotating: ["webu", "vaší značky", "podnikání", "vašeho e-shopu", "značky", "firmy"],
     description:
-      "Většina webů vypadá jako tisíc dalších. My vám postavíme takový, který si zákazník zapamatá — a hlavně u vás nechá poptávku nebo objednávku.",
+      "Většina webů vypadá jako přes kopírák. Ten váš postavíme tak, aby zaujal — a přinášel vám poptávky a objednávky.",
     ctaPrimary: "Chci se odlišit",
     ctaSecondary: "Prozkoumat projekty",
   },

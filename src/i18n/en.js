@@ -22,7 +22,7 @@ const en = {
     titleEnd: "starts right now",
     rotating: ["the web", "your brand", "your business", "your store", "your brand", "your company"],
     description:
-      "Most websites look like a thousand others. We'll build you one your customers actually remember — and one that gets them to send an enquiry or place an order.",
+      "Most websites look the same. We'll build yours to stand out — and bring in enquiries and orders.",
     ctaPrimary: "Make me stand out",
     ctaSecondary: "Explore projects",
   },
