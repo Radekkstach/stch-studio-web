@@ -47,15 +47,9 @@ const Hero = () => {
             stagger: 0.1,
           },
           "-=0.6",
-        )
-        .from(
-          ".hero-glow",
-          {
-            opacity: 0,
-            duration: 2,
-          },
-          "-=1",
         );
+      // .hero-glow fades in via CSS (see index.css) — keeping it off the GSAP
+      // ticker avoids dropped frames while the page is still loading on mobile.
     },
     { scope: container },
   );
@@ -65,11 +59,11 @@ const Hero = () => {
       ref={container}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-visible pt-36 pb-20 bg-hero-gradient"
     >
-      <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-indigo-500/20 rounded-full blur-[20px] md:blur-[120px] pointer-events-none" />
-      <div className="absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[90vw] h-64 md:w-[760px] md:h-80 bg-indigo-500/12 blur-[20px] md:blur-[140px] pointer-events-none" />
+      <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] md:w-[1100px] md:h-[1100px] rounded-full pointer-events-none" />
+      <div className="hero-glow-band absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[120vw] h-80 md:w-[1200px] md:h-[560px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-        <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
+        <h1 className="hero-title font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
           <div className="overflow-hidden py-[0.3em] -my-[0.3em]">
             <span className="hero-line hero-rotating-line" aria-live="polite">
               <span className="hero-rotating-line-sizer" aria-hidden="true">

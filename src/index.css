@@ -158,6 +158,42 @@
   .hero-line {
     padding-bottom: 0.08em;
   }
+  /* Fluid instead of stepped text-4xl→text-8xl: Tailwind's container is a fixed
+     width per breakpoint, so a stepped font-size overflowed the container in the
+     upper half of every breakpoint band (worst at 768–1279px) and the reveal
+     wrapper's overflow-hidden cut the text off. Caps at 6rem = the old text-8xl. */
+  .hero-title {
+    font-size: clamp(2.25rem, 7.2vw, 6rem);
+  }
+  /* Backdrop glows: plain radial gradients rather than filter: blur() on a large
+     block. A filtered layer of this size is re-rasterized on every opacity frame,
+     which is what made the fade-in stutter on mobile during initial load. */
+  .hero-glow,
+  .hero-glow-band {
+    --glow-opacity: 1;
+    opacity: var(--glow-opacity);
+    will-change: opacity;
+  }
+  .hero-glow {
+    background: radial-gradient(
+      closest-side,
+      rgb(99 102 241 / 0.2) 0%,
+      rgb(99 102 241 / 0.17) 22%,
+      rgb(99 102 241 / 0.09) 45%,
+      rgb(99 102 241 / 0.03) 70%,
+      rgb(99 102 241 / 0) 100%
+    );
+    animation: hero-glow-in 1.8s ease-out both;
+  }
+  .hero-glow-band {
+    background: radial-gradient(
+      ellipse closest-side,
+      rgb(99 102 241 / 0.12) 0%,
+      rgb(99 102 241 / 0.08) 40%,
+      rgb(99 102 241 / 0.02) 72%,
+      rgb(99 102 241 / 0) 100%
+    );
+  }
 }
 
 @keyframes gradient-float {
@@ -189,6 +225,32 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* Below xl the Tailwind container is narrower than the widest rotating phrase
+   rendered on one line, so let the line wrap instead of keeping nowrap and
+   getting clipped by the reveal wrapper's overflow-hidden. */
+@media (max-width: 1279px) {
+  .hero-rotating-line {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-rotating-line-sizer {
+    display: none;
+  }
+
+  .hero-rotating-line-content {
+    flex-wrap: wrap;
+    white-space: normal;
+    row-gap: 0.04em;
+  }
+
+  .hero-static-sizer,
+  .hero-static-word,
+  .hero-rotating-word {
+    white-space: normal;
   }
 }
 
@@ -239,7 +301,16 @@
 
 @media (max-width: 767px) {
   .hero-glow {
-    opacity: 0.65;
+    --glow-opacity: 0.65;
+  }
+}
+
+@keyframes hero-glow-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: var(--glow-opacity);
   }
 }
 
