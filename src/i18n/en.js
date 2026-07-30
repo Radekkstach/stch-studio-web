@@ -28,6 +28,7 @@ const en = {
   },
 
   projects: {
+    eyebrow: "Selected work",
     viewArchive: "View the full archive",
   },
 

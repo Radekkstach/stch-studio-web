@@ -28,6 +28,7 @@ const cs = {
   },
 
   projects: {
+    eyebrow: "Vybrané projekty",
     viewArchive: "Zobrazit celý archiv",
   },
 
