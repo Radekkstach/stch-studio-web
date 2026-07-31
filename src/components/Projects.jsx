@@ -13,7 +13,11 @@ const Projects = () => {
       id="Projekty"
       className="overflow-x-hidden relative z-10 -mt-24 pt-24"
     >
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/70 to-background" />
+      {/* Fades out the hero glow that spills past the hero's bottom edge. Fixed
+          height on purpose — spanning inset-0 stretched the fade across the
+          whole section, so how quickly the glow died depended on how many
+          projects were listed and was far too slow on mobile. */}
+      <div className="absolute inset-x-0 top-0 h-[320px] md:h-[420px] pointer-events-none bg-gradient-to-b from-transparent via-background/70 to-background" />
 
       <div className="container mx-auto px-6 relative z-10 py-20 md:py-32">
         <h2 className="text-sm font-mono text-indigo-400 uppercase tracking-widest mb-16 md:mb-24">

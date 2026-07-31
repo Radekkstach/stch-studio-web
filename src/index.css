@@ -111,6 +111,30 @@
     -webkit-text-fill-color: transparent;
     animation: gradient-float 4s ease-in-out infinite 1.5s;
   }
+  /* Same gradient as .animated-gradient-text, but painted through the logo's
+     alpha channel instead of glyphs — the PNG is white-on-transparent, so the
+     mask gives us the logo shape and the background supplies the colour. */
+  .animated-gradient-logo {
+    background-image: linear-gradient(
+      120deg,
+      #60a5fa,
+      #818cf8,
+      #a855f7,
+      #ec4899,
+      #818cf8,
+      #60a5fa
+    );
+    background-size: 300% 300%;
+    animation: gradient-float 4s ease-in-out infinite;
+    -webkit-mask-image: var(--logo-mask);
+    mask-image: var(--logo-mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
   .hero-rotating-word {
     display: inline-block;
     animation: hero-word-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1), gradient-float 4s ease-in-out infinite;
@@ -194,6 +218,42 @@
       rgb(99 102 241 / 0) 100%
     );
   }
+  /* Section accent glows use the same radial-gradient approach as .hero-glow
+     instead of filter: blur() on a solid blob. The blurred version needed a
+     ~120px blur to look soft, which was too expensive on mobile — the reduced
+     40px mobile blur turned a 420px circle into a visibly hard-edged disc that
+     also got cut off by the body's overflow-x: hidden. A gradient is soft at
+     any size, fades to fully transparent at its own edge (so clipping at the
+     viewport is invisible), and costs nothing to repaint. */
+  .section-glow-indigo {
+    background: radial-gradient(
+      closest-side,
+      rgb(99 102 241 / 0.18) 0%,
+      rgb(99 102 241 / 0.15) 22%,
+      rgb(99 102 241 / 0.08) 45%,
+      rgb(99 102 241 / 0.025) 70%,
+      rgb(99 102 241 / 0) 100%
+    );
+  }
+  .section-glow-band {
+    background: radial-gradient(
+      ellipse closest-side,
+      rgb(99 102 241 / 0.13) 0%,
+      rgb(99 102 241 / 0.09) 40%,
+      rgb(99 102 241 / 0.03) 72%,
+      rgb(99 102 241 / 0) 100%
+    );
+  }
+  .section-glow-blue {
+    background: radial-gradient(
+      closest-side,
+      rgb(59 130 246 / 0.12) 0%,
+      rgb(59 130 246 / 0.1) 22%,
+      rgb(59 130 246 / 0.055) 45%,
+      rgb(59 130 246 / 0.018) 70%,
+      rgb(59 130 246 / 0) 100%
+    );
+  }
 }
 
 @keyframes gradient-float {
@@ -255,7 +315,8 @@
 }
 
 @media (max-width: 640px) {
-  .animated-gradient-text {
+  .animated-gradient-text,
+  .animated-gradient-logo {
     animation: gradient-float 6s ease-in-out infinite;
   }
 

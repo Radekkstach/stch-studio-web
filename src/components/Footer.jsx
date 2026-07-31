@@ -32,7 +32,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-foreground/10 bg-background pt-24 pb-8">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/2 h-40 w-[24rem] md:h-56 md:w-[42rem] -translate-x-1/2 bg-indigo-500/10 blur-[18px] md:blur-[120px]" />
+        <div className="section-glow-band absolute top-0 left-1/2 h-40 w-[120vw] md:h-56 md:w-[42rem] -translate-x-1/2" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       </div>
 
@@ -42,12 +42,11 @@ const Footer = () => {
             <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl space-y-6">
                 <a href="#hero" className="block w-fit">
-                  <img
-                    src={logoWhite}
-                    alt="STCH Studio Logo"
-                    loading="lazy"
-                    decoding="async"
-                    className="h-10 w-auto object-contain opacity-95 dark:invert-0 invert"
+                  <span
+                    role="img"
+                    aria-label="STCH Studio Logo"
+                    style={{ "--logo-mask": `url(${logoWhite})` }}
+                    className="animated-gradient-logo block h-10 aspect-[924/427]"
                   />
                 </a>
 
@@ -135,7 +134,7 @@ const Footer = () => {
               </p>
 
               <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-                <div className="flex gap-6 text-xs text-muted">
+                <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted md:gap-6">
                   <Link
                     to={aboutPath}
                     className="transition-colors hover:text-foreground"

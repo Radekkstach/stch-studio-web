@@ -69,8 +69,11 @@ const Services = () => {
       onMouseMove={handleMouseMove}
       className="py-24 md:py-40 bg-background relative z-30 overflow-visible"
     >
-      <div className="absolute top-[-10%] left-[-5%] w-[420px] h-[420px] md:w-[600px] md:h-[600px] bg-indigo-600/30 blur-[40px] md:blur-[120px] rounded-full pointer-events-none -z-10 opacity-50 md:opacity-60" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[360px] h-[360px] md:w-[500px] md:h-[500px] bg-blue-500/20 blur-[30px] md:blur-[100px] rounded-full pointer-events-none -z-10 opacity-40 md:opacity-50" />
+      {/* Offsets are px/vw, not percentages: `top-[-10%]` resolved against the
+          section's own height, so the glows drifted with the content and hung
+          much further into the neighbouring sections on mobile than on desktop. */}
+      <div className="section-glow-indigo absolute -top-24 -left-[15vw] h-[92vw] w-[92vw] md:-top-28 md:-left-24 md:h-[900px] md:w-[900px] pointer-events-none -z-10" />
+      <div className="section-glow-blue absolute -bottom-24 -right-[15vw] h-[80vw] w-[80vw] md:-bottom-28 md:-right-24 md:h-[760px] md:w-[760px] pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-20">
