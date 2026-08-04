@@ -34,7 +34,7 @@ const en = {
 
   services: {
     eyebrow: "What we do",
-    title: ["Everything around the web", "in one place."],
+    title: ["From a website to an app", "in one place."],
     items: [
       {
         id: "01",
@@ -50,6 +50,12 @@ const en = {
       },
       {
         id: "03",
+        title: "Custom apps",
+        description:
+          "We'll build you an app of any size — from a simple record book to the system your whole company runs on. It bends around the way you work, instead of your people bending around an overpriced program you also pay for every month.",
+      },
+      {
+        id: "04",
         title: "Speed & visibility",
         description:
           "We make sure customers find you on Google and that your site loads instantly. A slow website drives people away before they even read anything.",

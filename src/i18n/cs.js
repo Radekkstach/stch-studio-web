@@ -34,7 +34,7 @@ const cs = {
 
   services: {
     eyebrow: "Co děláme",
-    title: ["Vše kolem webu", "na jednom místě."],
+    title: ["Od webu po aplikaci", "na jednom místě."],
     items: [
       {
         id: "01",
@@ -50,6 +50,12 @@ const cs = {
       },
       {
         id: "03",
+        title: "Aplikace na míru",
+        description:
+          "Postavíme vám aplikaci jakéhokoliv rozsahu — od jednoduché evidence až po systém, na kterém stojí celá firma. Přizpůsobí se tomu, jak pracujete vy, místo aby se vaši lidé ohýbali podle předraženého programu, za který navíc platíte každý měsíc.",
+      },
+      {
+        id: "04",
         title: "Rychlost a viditelnost",
         description:
           "Postaráme se, aby vás zákazníci našli na Googlu a aby se web načítal okamžitě. Pomalý web totiž lidi odežene dřív, než si u vás stihnou cokoliv přečíst.",

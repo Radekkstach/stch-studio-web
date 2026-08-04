@@ -1,10 +1,16 @@
 import React, { useState, useRef } from "react";
-import { ArrowRight, Code, ShoppingCart, BarChart3 } from "lucide-react";
+import {
+  ArrowRight,
+  Code,
+  ShoppingCart,
+  Workflow,
+  BarChart3,
+} from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "../i18n";
 
-const SERVICE_ICONS = [Code, ShoppingCart, BarChart3];
+const SERVICE_ICONS = [Code, ShoppingCart, Workflow, BarChart3];
 
 const Services = () => {
   const [activeIndex, setActiveIndex] = useState(0);
