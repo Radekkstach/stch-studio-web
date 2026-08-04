@@ -57,6 +57,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  // Ctenne ze scroll listeneru, ktery se registruje jen jednou pri mountu.
+  const isMenuOpenRef = useRef(false);
   const { theme, toggleTheme } = useTheme();
   const { t, lang, setLang } = useTranslation();
   const location = useLocation();
@@ -75,9 +77,12 @@ const Navbar = () => {
     let ticking = false;
 
     const updateScrolledState = () => {
+      ticking = false;
+      // S otevrenym menu drzime navbar v tom stavu, v jakem byl pri otevreni —
+      // jinak by se pres celoobrazovkove menu prehravalo skladani do pilulky.
+      if (isMenuOpenRef.current) return;
       const nextValue = window.scrollY > 50;
       setIsScrolled((prev) => (prev === nextValue ? prev : nextValue));
-      ticking = false;
     };
 
     const handleScroll = () => {
@@ -104,26 +109,35 @@ const Navbar = () => {
   });
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-      gsap.fromTo(
-        ".mobile-link",
-        { y: 50, opacity: 0, skewY: 5 },
-        {
-          y: 0,
-          opacity: 1,
-          skewY: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power3.out",
-          delay: 0.2,
-        },
-      );
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    isMenuOpenRef.current = isMobileMenuOpen;
+    if (!isMobileMenuOpen) return;
+
+    // Roluje <html>, ne <body>: index.css nastavuje html { overflow-x: hidden },
+    // cimz se korenovy element stava scroll kontejnerem a overflow z body se uz
+    // na viewport nepropaguje. Zamykat samotne body proto nic neudela.
+    const root = document.documentElement;
+    const prevRootOverflow = root.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    root.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    gsap.fromTo(
+      ".mobile-link",
+      { y: 50, opacity: 0, skewY: 5 },
+      {
+        y: 0,
+        opacity: 1,
+        skewY: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.2,
+      },
+    );
+
     return () => {
-      document.body.style.overflow = "unset";
+      root.style.overflow = prevRootOverflow;
+      document.body.style.overflow = prevBodyOverflow;
     };
   }, [isMobileMenuOpen]);
 
