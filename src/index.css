@@ -179,6 +179,14 @@
     animation: hero-static-word-focus 0.45s ease-out;
     will-change: opacity;
   }
+  /* 100vh je na mobilu vyska viewportu bez adresniho radku a spodni listy, ktere
+     ale pri nacteni videt jsou — obsah centrovany v takove vysce vyjde pod
+     opticky stred. svh pocita s tou mensi, skutecne videnou vyskou. Prvni radek
+     je fallback pro prohlizece, ktere svh neznaji. */
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
   .hero-line {
     padding-bottom: 0.08em;
   }
@@ -347,6 +355,14 @@
 
   .hero-line {
     padding-bottom: 0.14em;
+  }
+
+  /* Na telefonech je 7.2vw z hlavniho clampu vzdycky pod jeho minimem, takze
+     vsechny mobily koncily na stejnych 2.25rem — velky displej z toho nic
+     nemel. Tady je rotujici radek uz ve sloupci, sirku tedy limituje jen
+     nejdelsi jedno slovo a je prostor jit vys. */
+  .hero-title {
+    font-size: clamp(2.5rem, 11vw, 3rem);
   }
 
   .hero-static-slot {
