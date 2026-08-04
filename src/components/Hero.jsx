@@ -63,7 +63,7 @@ const Hero = () => {
       <div className="hero-glow-band absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[120vw] h-80 md:w-[1200px] md:h-[560px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-        <h1 className="hero-title font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8">
+        <h1 className="hero-title font-bold tracking-tighter leading-[1.1] mb-8 md:mb-12">
           <div className="overflow-hidden py-[0.3em] -my-[0.3em]">
             <span className="hero-line hero-rotating-line" aria-live="polite">
               <span className="hero-rotating-line-sizer" aria-hidden="true">
@@ -97,7 +97,7 @@ const Hero = () => {
           </div>
         </h1>
 
-        <p className="hero-fade text-base md:text-xl text-muted max-w-2xl mx-auto leading-relaxed px-2">
+        <p className="hero-fade text-base md:text-xl text-foreground/75 max-w-xl mx-auto leading-relaxed text-balance px-2">
           {t("hero.description")}
         </p>
       </div>
