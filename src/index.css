@@ -450,9 +450,44 @@
   }
 }
 
+@keyframes svc-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes svc-draw {
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes svc-grow {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Plni oblouk budiku presne pod rucickou: procenta i easing sedi na
+   `svc-needle`, dashoffset odpovida uhlu rucicky (pulkruh r=58, delka 182,
+   uhel merime od svislice, takze viditelna cast = (uhel + 90) / 180). */
+@keyframes svc-gauge {
+  0% {
+    stroke-dashoffset: 182;
+  }
+  55% {
+    stroke-dashoffset: 39;
+  }
+  72% {
+    stroke-dashoffset: 57;
+  }
+  100% {
+    stroke-dashoffset: 47;
   }
 }
 
@@ -484,14 +519,15 @@
 
 .svc-rise,
 .svc-fly,
-.svc-pop {
+.svc-pop,
+.svc-grow {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .svc-rise {
-  animation: svc-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: svc-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .svc-fly {
@@ -503,32 +539,50 @@
   animation: svc-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+.svc-grow {
+  transform-origin: bottom center;
+  animation: svc-grow 0.4s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.svc-fade-out {
+  animation: svc-fade-out 0.3s ease-out forwards;
+}
+
 .svc-draw {
   stroke-dasharray: var(--svc-len, 200);
   stroke-dashoffset: var(--svc-len, 200);
   animation: svc-draw 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
 }
 
+.svc-gauge {
+  stroke-dasharray: 182;
+  stroke-dashoffset: 182;
+  animation: svc-gauge 1.4s cubic-bezier(0.34, 1.3, 0.64, 1) 0.15s forwards;
+}
+
 .svc-needle {
   transform-box: view-box;
-  transform-origin: 100px 98px;
-  animation: svc-needle 1.5s cubic-bezier(0.34, 1.3, 0.64, 1) 0.2s both;
+  transform-origin: 100px 92px;
+  animation: svc-needle 1.4s cubic-bezier(0.34, 1.3, 0.64, 1) 0.15s both;
 }
 
 .svc-ring {
-  transform-box: view-box;
-  transform-origin: 100px 68px;
+  transform-box: fill-box;
+  transform-origin: center;
   opacity: 0;
   /* Zamerne konecny pocet opakovani: scena zustava namountovana i po tom, co
      z ni uzivatel odscrolluje, a nekonecna animace by na mobilu dal zbytecne
      prekreslovala a ubirala baterku. */
-  animation: svc-ring 2.4s ease-out 1s 3;
+  animation: svc-ring 1.8s ease-out 1s 2;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .svc-rise,
   .svc-pop,
+  .svc-grow,
+  .svc-fade-out,
   .svc-draw,
+  .svc-gauge,
   .svc-needle {
     animation-duration: 0.01ms;
     animation-delay: 0ms;
