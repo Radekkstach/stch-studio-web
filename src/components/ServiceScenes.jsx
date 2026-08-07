@@ -7,7 +7,9 @@ import React, { useEffect, useRef, useState } from "react";
  * prehraje od zacatku. Zadny JS ticker tedy neni potreba.
  */
 
-// Web na míru: stránka se skládá po kouscích.
+// Web na míru: stránka se skládá po kouscích — texty nalétnou zleva, přibude
+// obrázková karta a nakonec kurzor doklikne na tlačítko (= web, který lidi
+// dovede k akci). Ramecek prohlizece drzi kompozici, proto se neanimuje.
 const WebScene = () => (
   <>
     <rect
@@ -23,9 +25,20 @@ const WebScene = () => (
     <circle cx="30" cy="25" r="2.5" className="fill-foreground/35" />
     <circle cx="39" cy="25" r="2.5" className="fill-foreground/35" />
     <circle cx="48" cy="25" r="2.5" className="fill-foreground/35" />
+    <rect
+      x="60"
+      y="20"
+      width="110"
+      height="10"
+      rx="5"
+      className="svc-rise fill-foreground/10"
+      style={{ animationDelay: "0.05s" }}
+    />
 
-    <g className="svc-rise" style={{ animationDelay: "0.05s" }}>
+    <g className="svc-in" style={{ "--svc-fx": "-16px", animationDelay: "0.1s" }}>
       <rect x="32" y="48" width="72" height="9" rx="4.5" className="fill-foreground/55" />
+    </g>
+    <g className="svc-in" style={{ "--svc-fx": "-16px", animationDelay: "0.2s" }}>
       <rect x="32" y="63" width="52" height="6" rx="3" className="fill-foreground/30" />
     </g>
     <rect
@@ -34,9 +47,12 @@ const WebScene = () => (
       width="38"
       height="13"
       rx="6.5"
-      className="svc-rise fill-indigo-500/70"
-      style={{ animationDelay: "0.22s" }}
+      className="svc-in fill-indigo-500/80"
+      style={{ "--svc-fx": "-16px", animationDelay: "0.32s" }}
     />
+
+    {/* Obrazkova karta — slunce nad kopci, at je poznat, ze jde o obsah,
+        ne o dalsi prazdny blok. */}
     <rect
       x="118"
       y="48"
@@ -45,14 +61,52 @@ const WebScene = () => (
       rx="6"
       className="svc-rise fill-indigo-500/20 stroke-indigo-400/60"
       strokeWidth="1.5"
-      style={{ animationDelay: "0.38s" }}
+      style={{ animationDelay: "0.42s" }}
     />
-
-    <g className="svc-rise" style={{ animationDelay: "0.54s" }}>
-      <rect x="32" y="102" width="40" height="14" rx="4" className="fill-foreground/15" />
-      <rect x="80" y="102" width="40" height="14" rx="4" className="fill-foreground/15" />
-      <rect x="128" y="102" width="40" height="14" rx="4" className="fill-foreground/15" />
+    <g className="svc-rise" style={{ animationDelay: "0.58s" }}>
+      <circle cx="132" cy="62" r="5" className="fill-indigo-300/80" />
+      <path
+        d="M120 86 L134 70 L143 79 L149 73 L166 86 Z"
+        className="fill-indigo-400/45"
+      />
     </g>
+
+    {[32, 80, 128].map((x, i) => (
+      <rect
+        key={x}
+        x={x}
+        y="102"
+        width="40"
+        height="14"
+        rx="4"
+        className="svc-rise fill-foreground/15"
+        style={{ animationDelay: `${0.66 + i * 0.09}s` }}
+      />
+    ))}
+
+    {/* Kurzor prijede zprava dolu a klikne na tlacitko. */}
+    <rect
+      x="32"
+      y="78"
+      width="38"
+      height="13"
+      rx="6.5"
+      className="svc-ring stroke-indigo-300/80"
+      strokeWidth="1.5"
+      fill="none"
+      style={{
+        animationDelay: "1.5s",
+        animationDuration: "0.9s",
+        animationIterationCount: 2,
+      }}
+    />
+    <path
+      d="M55 84 L55 96 L58.2 93 L60.6 98 L62.6 97 L60.2 92.2 L64.6 92 Z"
+      className="svc-cursor fill-foreground stroke-background"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+      style={{ animationDelay: "0.9s" }}
+    />
   </>
 );
 

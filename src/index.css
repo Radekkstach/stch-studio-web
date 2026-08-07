@@ -226,6 +226,23 @@
       rgb(99 102 241 / 0) 100%
     );
   }
+  /* Logo se pouziva jako maska, ne jako obrazek — barvu tak urcuje gradient
+     pod ni a vodoznak sedi na tmavy i svetly motiv bez invertovani. Ve svetlem
+     rezimu potrebuje o neco vic kryti, aby na bilem pozadi vubec byl videt. */
+  .hero-watermark {
+    --hero-watermark-opacity: 0.11;
+    background-image: linear-gradient(115deg, #6366f1, #8b5cf6, #a855f7);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    animation: hero-watermark-in 1.8s ease-out 0.2s both;
+  }
+  .dark .hero-watermark {
+    --hero-watermark-opacity: 0.08;
+  }
   /* Section accent glows use the same radial-gradient approach as .hero-glow
      instead of filter: blur() on a solid blob. The blurred version needed a
      ~120px blur to look soft, which was too expensive on mobile — the reduced
@@ -391,6 +408,49 @@
   }
 }
 
+/* Posun o -50 % je soucasti keyframu, ne utility trid — jinak by ho animace
+   transformu pri nabehu prepsala a vodoznak by odskocil z osy. */
+@keyframes hero-watermark-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  100% {
+    opacity: var(--hero-watermark-opacity);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-watermark {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms;
+  }
+}
+
+/* Prechod mezi otazkami v dotazniku. Bezi na `key` obrazovky — React prvek
+   odmountuje a nasadi znovu, takze se animace prehraje bez jakehokoliv JS. */
+@keyframes q-step-in {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.q-step {
+  animation: q-step-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .q-step {
+    animation-duration: 0.01ms;
+  }
+}
+
 @keyframes hero-word-enter-mobile {
   0% {
     opacity: 0;
@@ -447,6 +507,40 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Jako `svc-rise`, ale s volitelnym smerem naletu (--svc-fx / --svc-fy).
+   Diky tomu se prvky ve scene nesypou vsechny stejne shora. */
+@keyframes svc-in {
+  0% {
+    opacity: 0;
+    transform: translate(var(--svc-fx, 0), var(--svc-fy, 10px)) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes svc-cursor {
+  0% {
+    opacity: 0;
+    transform: translate(34px, -22px);
+  }
+  30% {
+    opacity: 1;
+  }
+  75% {
+    transform: translate(0, 0) scale(1);
+  }
+  /* Kliknuti — kurzor se na miste kratce zmackne. */
+  85% {
+    transform: translate(0, 0) scale(0.82);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
   }
 }
 
@@ -518,9 +612,11 @@
 }
 
 .svc-rise,
+.svc-in,
 .svc-fly,
 .svc-pop,
-.svc-grow {
+.svc-grow,
+.svc-cursor {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
@@ -528,6 +624,17 @@
 
 .svc-rise {
   animation: svc-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.svc-in {
+  animation: svc-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.svc-cursor {
+  /* Spicka kurzoru je levy horni roh jeho bboxu, takze se "zmacknuti" deje
+     kolem ni a ne kolem stredu sipky. */
+  transform-origin: left top;
+  animation: svc-cursor 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
 .svc-fly {
@@ -578,8 +685,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .svc-rise,
+  .svc-in,
   .svc-pop,
   .svc-grow,
+  .svc-cursor,
   .svc-fade-out,
   .svc-draw,
   .svc-gauge,

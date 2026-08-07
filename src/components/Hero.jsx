@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "../i18n";
+import logoMark from "../assets/nav_logo.png";
 
 const Hero = () => {
   const container = useRef();
@@ -55,6 +56,18 @@ const Hero = () => {
     >
       <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] md:w-[1100px] md:h-[1100px] rounded-full pointer-events-none" />
       <div className="hero-glow-band absolute left-1/2 bottom-[-140px] -translate-x-1/2 w-[120vw] h-80 md:w-[1200px] md:h-[560px] pointer-events-none" />
+
+      {/* Vodoznak — logo studia jako sotva viditelny podtisk za nadpisem.
+          Zamerne stejny soubor jako v navigaci: prohlizec uz ho ma stazeny,
+          takze dekorace nestoji ani jeden request navic. */}
+      <div
+        aria-hidden="true"
+        className="hero-watermark pointer-events-none absolute left-1/2 top-1/2 w-[128vw] max-w-[1150px] aspect-[924/427]"
+        style={{
+          WebkitMaskImage: `url(${logoMark})`,
+          maskImage: `url(${logoMark})`,
+        }}
+      />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
         <h1 className="hero-title font-bold tracking-tighter leading-[1.1]">
