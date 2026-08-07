@@ -78,7 +78,7 @@ Indicative "from" prices, ladder of 3 tiers. Current values (CZ / EN):
 - Web na míru / Custom website — **od 10 000 Kč** / from €400
 - Vícestránkový web / Multi-page website — **od 20 000 Kč** / from €800
 - Aplikace na míru / Custom app (app-primary, e-shop secondary) — **od 40 000 Kč** / from €1,600
-- Provoz: doména + hosting od 500 Kč/rok, správa zdarma.
+- Provoz: doména + hosting od 500 Kč/rok. Správa po spuštění **není** inzerovaná jako zdarma — neomezená podpora zdarma se nedá škálovat, až bude studio zaměstnávat lidi.
 Rationale: AI has pushed the market floor down and sped up production, but custom code + own CMS justifies being above DIY builders. The owner historically **underprices** (one site was 2 500 Kč) — keep an eye on that. €≈25 Kč. Each pricing card links to a relevant case study via `exampleSlug` (Web→bar-praha, Vícestránkový→octagon-trebic, Aplikace→none yet / "Ukázka už brzy", a `fieldec` app case is coming).
 
 ### mySTCH CMS

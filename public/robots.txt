@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Rozpracovany dotaznik — nikde na nej nevede odkaz a neni v sitemape.
+# Az bude hotovy, staci tyhle dva radky smazat.
+Disallow: /dotaznik
+Disallow: /en/brief
+
 Sitemap: https://stchstudio.cz/sitemap.xml

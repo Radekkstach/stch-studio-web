@@ -34,6 +34,7 @@ const Archive = lazy(() => import("./components/Archive"));
 const CaseStudy = lazy(() => import("./components/CaseStudy"));
 const MyStch = lazy(() => import("./components/MyStch"));
 const AboutMe = lazy(() => import("./components/AboutMe"));
+const Questionnaire = lazy(() => import("./components/Questionnaire"));
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -188,6 +189,14 @@ const LocalizedRoutes = () => (
           </Suspense>
         }
       />
+      <Route
+        path="/dotaznik"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <Questionnaire />
+          </Suspense>
+        }
+      />
       <Route path="/en" element={<Home />} />
       <Route
         path="/en/archive"
@@ -218,6 +227,14 @@ const LocalizedRoutes = () => (
         element={
           <Suspense fallback={sectionFallback(640)}>
             <AboutMe />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/en/brief"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <Questionnaire />
           </Suspense>
         }
       />

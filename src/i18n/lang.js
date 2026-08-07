@@ -32,8 +32,8 @@ const stripLangPrefix = (pathname) => {
 };
 
 const SEGMENT_MAP = {
-  cs: { archiv: "archive", projekt: "project", "o-mne": "about" },
-  en: { archive: "archiv", project: "projekt", about: "o-mne" },
+  cs: { archiv: "archive", projekt: "project", "o-mne": "about", dotaznik: "brief" },
+  en: { archive: "archiv", project: "projekt", about: "o-mne", brief: "dotaznik" },
 };
 
 const translateSegments = (cleanPath, fromLang, toLang) => {
