@@ -21,8 +21,6 @@ const cs = {
     titleStatic: "Budoucnost",
     titleEnd: "začíná právě teď",
     rotating: ["webu", "vaší značky", "podnikání", "vašeho e-shopu", "značky", "firmy"],
-    description:
-      "Navrhujeme a stavíme weby i aplikace na míru, ať už potřebujete přivést zákazníky, nebo si zjednodušit práci.",
     ctaPrimary: "Chci se odlišit",
     ctaSecondary: "Prozkoumat projekty",
   },

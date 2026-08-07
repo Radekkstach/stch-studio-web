@@ -71,7 +71,7 @@ Custom utilities: `hero-gradient`, `glass` background gradients, `shimmer` anima
 - Write for **non-technical clients**. No web jargon (React, Next.js, wireframe, pixel-perfect, conversion rate, UX, etc.). Talk in business benefits: more enquiries/orders, found on Google, fast, easy to use.
 
 ### Homepage section order (`App.jsx` `Home`)
-Hero → Projects → Services → Studio → Process (`Jak to probíhá`) → Cms (`Vlastní administrace`) → Pricing (`Ceník`) → Contact. Nav links: Projekty, Služby, Studio, Ceník (Process/Cms reached by scroll). Section ids: `Proces`, `Administrace`, `Cenik`, `Kontakt`.
+Hero → Services → Projects → Process (`Jak to probíhá`) → Cms (`Vlastní administrace`) → Pricing (`Ceník`) → Contact. Services comes before Projects on purpose: the hero is title-only (no subtitle, no CTA), so Services is the first thing that says what the studio actually sells; Projects then act as proof. Nav links: Služby, Projekty, mySTCH, Ceník, O mně (Process/Cms reached by scroll). Section ids: `Sluzby`, `Projekty`, `Proces`, `Administrace`, `Cenik`, `Kontakt`. There is no Studio section/component.
 
 ### Pricing (`pricing` key in i18n) — tunable, set with the owner
 Indicative "from" prices, ladder of 3 tiers. Current values (CZ / EN):

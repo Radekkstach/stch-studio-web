@@ -66,8 +66,8 @@ const Navbar = () => {
   const isHome = location.pathname === "/" || location.pathname === "/en";
 
   const navLinks = [
-    { id: "Projekty", label: t("nav.projects") },
     { id: "Sluzby", label: t("nav.services") },
+    { id: "Projekty", label: t("nav.projects") },
     { path: lang === "en" ? "/en/mystch" : "/mystch", label: t("nav.mystch") },
     { id: "Cenik", label: t("nav.pricing") },
     { path: lang === "en" ? "/en/about" : "/o-mne", label: t("nav.about") },

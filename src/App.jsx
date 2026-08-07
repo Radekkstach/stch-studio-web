@@ -77,13 +77,13 @@ const Home = () => {
             <Hero />
           </div>
           <div>
-            <Suspense fallback={sectionFallback(640)}>
-              <Projects />
+            <Suspense fallback={sectionFallback(720)}>
+              <Services />
             </Suspense>
           </div>
           <div>
-            <Suspense fallback={sectionFallback(720)}>
-              <Services />
+            <Suspense fallback={sectionFallback(640)}>
+              <Projects />
             </Suspense>
           </div>
           <div>
