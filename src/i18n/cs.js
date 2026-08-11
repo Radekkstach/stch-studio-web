@@ -439,6 +439,7 @@ const cs = {
     tech: "Tech stack",
     challengeTitle: "Výzva",
     approachTitle: "Řešení",
+    galleryTitle: "Z projektu",
     noCaseStudy:
       "Pro tento projekt zatím chystáme detailní case study. Mezitím si můžeš prohlédnout živý web.",
     nextProject: "Další projekt",

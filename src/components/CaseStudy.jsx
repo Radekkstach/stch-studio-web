@@ -77,6 +77,33 @@ const CaseStudy = () => {
           "-=0.4",
         );
 
+      // Řádky galerie přilétají ze strany, na které leží snímek (na mobilu jen zdola,
+      // aby se stránka nedala odsunout do strany).
+      const sideways = window.matchMedia("(min-width: 768px)").matches;
+      gsap.utils.toArray(".cs-shot").forEach((row, i) => {
+        const trigger = {
+          trigger: row,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        };
+        gsap.from(row.querySelector(".cs-shot-media"), {
+          x: sideways ? (i % 2 === 1 ? -56 : 56) : 0,
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: trigger,
+        });
+        gsap.from(row.querySelector("figcaption"), {
+          y: 32,
+          opacity: 0,
+          duration: 0.9,
+          delay: 0.12,
+          ease: "power3.out",
+          scrollTrigger: trigger,
+        });
+      });
+
       gsap.utils.toArray(".cs-reveal").forEach((el) => {
         gsap.from(el, {
           y: 30,
@@ -237,6 +264,28 @@ const CaseStudy = () => {
         </section>
       )}
 
+      {cs?.gallery?.length > 0 && (
+        <section className="container relative z-10 mx-auto mt-24 px-6 md:mt-36">
+          <h2 className="cs-reveal font-mono text-xs uppercase tracking-[0.2em] text-indigo-400">
+            {t("caseStudy.galleryTitle")}
+          </h2>
+
+          {/* Střídavé řádky: obrázek jednou vlevo, podruhé vpravo. Žádné rámečky —
+              snímek stojí sám o sobě, text se veze vedle něj. */}
+          <div className="mt-14 flex flex-col gap-24 md:mt-20 md:gap-36">
+            {cs.gallery.map((shot, i) => (
+              <GalleryRow
+                key={i}
+                shot={shot}
+                index={i}
+                flipped={i % 2 === 1}
+                fallbackAlt={project.title}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="container relative z-10 mx-auto mt-20 px-6 pb-24 md:mt-28 md:pb-32">
         <div className="cs-reveal grid grid-cols-1 gap-4 md:grid-cols-2">
           {prev ? (
@@ -278,6 +327,50 @@ const CaseStudy = () => {
         </div>
       </section>
     </div>
+  );
+};
+
+// Jeden řádek galerie: snímek na jedné straně, text na druhé. `shape` řídí jen to,
+// kolik místa snímek dostane — na výšku (plakát, telefon) se drží úzký.
+const GalleryRow = ({ shot, index, flipped, fallbackAlt }) => {
+  const wide = shot.shape === "wide";
+
+  return (
+    <figure className="cs-shot grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-14 lg:gap-20">
+      <div
+        className={`cs-shot-media group relative ${
+          wide ? "md:col-span-7" : "md:col-span-5"
+        } ${flipped ? "md:order-2" : "md:order-1"}`}
+      >
+        <div className="pointer-events-none absolute -inset-8 rounded-[3rem] bg-gradient-to-tr from-indigo-500/25 via-purple-500/10 to-transparent opacity-70 blur-3xl" />
+        <img
+          src={shot.image}
+          alt={shot.title ?? fallbackAlt}
+          loading="lazy"
+          decoding="async"
+          className={`relative w-full rounded-2xl shadow-[0_40px_90px_-25px_rgba(0,0,0,0.9)] ring-1 ring-foreground/10 transition-transform duration-700 ease-out group-hover:-translate-y-2 ${
+            wide ? "" : "mx-auto max-w-[260px] sm:max-w-[300px]"
+          }`}
+        />
+      </div>
+
+      <figcaption
+        className={`${wide ? "md:col-span-5" : "md:col-span-7"} ${
+          flipped ? "md:order-1" : "md:order-2"
+        }`}
+      >
+        <span className="font-mono text-sm text-indigo-400/60">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
+          {shot.title}
+        </h3>
+        <div className="mt-6 h-px w-16 bg-gradient-to-r from-indigo-500 to-transparent" />
+        <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
+          {shot.caption}
+        </p>
+      </figcaption>
+    </figure>
   );
 };
 

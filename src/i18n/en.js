@@ -449,6 +449,7 @@ const en = {
     tech: "Tech stack",
     challengeTitle: "The challenge",
     approachTitle: "Our approach",
+    galleryTitle: "Inside the project",
     noCaseStudy:
       "A detailed case study for this project is on the way. In the meantime, take a look at the live site.",
     nextProject: "Next project",
