@@ -90,7 +90,7 @@ const Archive = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-24">
           {projects.map((project, index) => (
             <Link
-              key={project.id}
+              key={project.slug}
               to={
                 lang === "en"
                   ? `/en/archive/project/${project.slug}`

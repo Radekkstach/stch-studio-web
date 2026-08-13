@@ -1,12 +1,13 @@
 import React from "react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getLocalizedProjects } from "../data/projectsData";
+import { getFeaturedProjects } from "../data/projectsData";
 import { useTranslation } from "../i18n";
 
 const Projects = () => {
   const { t, lang } = useTranslation();
-  const featuredProjects = getLocalizedProjects(lang).slice(0, 3);
+  // Vyber i poradi resi projectsData (`featured` + poradi pole), ne tahle komponenta.
+  const featuredProjects = getFeaturedProjects(lang);
 
   return (
     <section
@@ -26,7 +27,7 @@ const Projects = () => {
         <div className="flex flex-col gap-20 md:gap-28 lg:gap-36">
           {featuredProjects.map((project, index) => (
             <div
-              key={project.id}
+              key={project.slug}
               className={`w-full md:w-[88%] lg:w-[74%] ${
                 index % 2 === 1 ? "md:ml-auto" : "md:mr-auto"
               }`}
