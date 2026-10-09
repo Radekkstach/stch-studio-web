@@ -394,7 +394,6 @@ const en = {
     location: "Třebíč, Czech Republic",
     rights: "All rights reserved.",
     privacy: "Privacy policy",
-    cookies: "Cookie settings",
     modal: {
       title: "Privacy policy",
       close: "Close",
@@ -420,9 +419,9 @@ const en = {
             "You have the right to request a data export, correction or deletion. Just write to info@stchstudio.cz.",
         },
         {
-          title: "5. Cookies",
+          title: "5. Cookies and statistics",
           body:
-            "The site uses essential technical cookies for proper operation and optional analytical cookies (Google Analytics) for traffic measurement. You can change your consent any time via \"Cookie settings\" in the footer.",
+            "The site uses no cookies. Your browser only remembers your chosen language and colour theme. We measure traffic with Vercel Web Analytics — aggregated statistics (number of visits, pages viewed, device type, country) that use no cookies and cannot identify you or track you across websites.",
         },
       ],
       understood: "Got it",
@@ -528,25 +527,13 @@ const en = {
     ctaButton: "Write to me",
   },
 
-  cookies: {
-    title: "This site uses cookies",
+  notFound: {
+    eyebrow: "Error 404",
+    title: "This page isn't here",
     description:
-      "We use essential cookies to make the site work and optional analytical cookies (Google Analytics) for a better understanding of traffic. You can change your consent any time in the footer.",
-    settings: "Settings",
-    reject: "Reject",
-    accept: "Accept all",
-    panelTitle: "Cookie settings",
-    panelSubtitle: "Choose which cookies we may use.",
-    closeSettings: "Close settings",
-    necessary: "Essential",
-    necessaryBadge: "always active",
-    necessaryDesc:
-      "Without these the site can't work properly (e.g. storing your cookie choice).",
-    analytics: "Analytical",
-    analyticsDesc:
-      "Google Analytics — anonymous traffic statistics that help us improve the site.",
-    rejectAll: "Reject all",
-    save: "Save choice",
+      "The link may be old, or we've moved the page. The rest of the site works fine — head back to the homepage or have a look at what we've built.",
+    home: "Back to homepage",
+    projects: "Our projects",
   },
 };
 

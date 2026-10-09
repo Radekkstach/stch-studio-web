@@ -11,7 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import logoWhite from "../assets/nav_logo.png";
 import { scrollToSection } from "../utils/scrollToSection";
-import { reopenBanner } from "../utils/consent";
 import { useTranslation } from "../i18n";
 
 const Footer = () => {
@@ -146,12 +145,6 @@ const Footer = () => {
                     className="transition-colors hover:text-foreground"
                   >
                     {t("footer.privacy")}
-                  </button>
-                  <button
-                    onClick={reopenBanner}
-                    className="transition-colors hover:text-foreground"
-                  >
-                    {t("footer.cookies")}
                   </button>
                 </div>
 

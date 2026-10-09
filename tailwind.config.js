@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Inter Variable", "Inter", "sans-serif"],
       },
       colors: {
         background: "rgb(var(--color-background) / <alpha-value>)",

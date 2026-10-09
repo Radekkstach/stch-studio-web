@@ -6,4 +6,4 @@ Allow: /
 Disallow: /dotaznik
 Disallow: /en/brief
 
-Sitemap: https://stchstudio.cz/sitemap.xml
+Sitemap: https://www.stchstudio.cz/sitemap.xml

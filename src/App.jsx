@@ -12,7 +12,7 @@ import { useGSAP } from "@gsap/react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import PrivacyNotice from "./components/PrivacyNotice";
+import { Analytics } from "@vercel/analytics/react";
 import { LanguageProvider } from "./i18n";
 import {
   detectBrowserLang,
@@ -35,6 +35,7 @@ const CaseStudy = lazy(() => import("./components/CaseStudy"));
 const MyStch = lazy(() => import("./components/MyStch"));
 const AboutMe = lazy(() => import("./components/AboutMe"));
 const Questionnaire = lazy(() => import("./components/Questionnaire"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -238,8 +239,16 @@ const LocalizedRoutes = () => (
           </Suspense>
         }
       />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={sectionFallback(640)}>
+            <NotFound />
+          </Suspense>
+        }
+      />
     </Routes>
-    <PrivacyNotice />
+    <Analytics />
   </LanguageProvider>
 );
 

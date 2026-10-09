@@ -384,7 +384,6 @@ const cs = {
     location: "Třebíč, Česká republika",
     rights: "Všechna práva vyhrazena.",
     privacy: "Ochrana osobních údajů",
-    cookies: "Nastavení cookies",
     modal: {
       title: "Ochrana osobních údajů",
       close: "Zavřít",
@@ -410,9 +409,9 @@ const cs = {
             "Máte právo požadovat výpis dat, jejich opravu nebo výmaz. Stačí nám napsat na info@stchstudio.cz.",
         },
         {
-          title: "5. Cookies",
+          title: "5. Cookies a statistiky",
           body:
-            "Web používá nezbytné technické cookies pro správné fungování a volitelně analytické cookies (Google Analytics) pro měření návštěvnosti. Souhlas můžete kdykoliv změnit v patičce přes „Nastavení cookies\".",
+            "Web nepoužívá žádné cookies. Ve vašem prohlížeči si pamatuje jen zvolený jazyk a barevný motiv. Návštěvnost měříme přes Vercel Web Analytics — jde o souhrnné statistiky (počet návštěv, zobrazené stránky, typ zařízení, země), které nepoužívají cookies a neumožňují vás identifikovat ani sledovat napříč weby.",
         },
       ],
       understood: "Rozumím",
@@ -518,25 +517,13 @@ const cs = {
     ctaButton: "Napsat mi",
   },
 
-  cookies: {
-    title: "Tento web používá cookies",
+  notFound: {
+    eyebrow: "Chyba 404",
+    title: "Tahle stránka tu není",
     description:
-      "Používáme nezbytné cookies pro fungování webu a volitelně analytické cookies (Google Analytics) pro lepší pochopení návštěvnosti. Souhlas můžete kdykoliv změnit v patičce.",
-    settings: "Nastavení",
-    reject: "Odmítnout",
-    accept: "Přijmout vše",
-    panelTitle: "Nastavení cookies",
-    panelSubtitle: "Vyberte, které cookies smíme používat.",
-    closeSettings: "Zavřít nastavení",
-    necessary: "Nezbytné",
-    necessaryBadge: "vždy aktivní",
-    necessaryDesc:
-      "Bez nich web nemůže správně fungovat (např. uložení vašeho rozhodnutí o cookies).",
-    analytics: "Analytické",
-    analyticsDesc:
-      "Google Analytics — anonymní statistiky o návštěvnosti, které nám pomáhají web zlepšovat.",
-    rejectAll: "Odmítnout vše",
-    save: "Uložit volbu",
+      "Odkaz je možná starý, nebo jsme stránku přesunuli. Zbytek webu ale funguje — vraťte se na hlavní stránku, nebo se podívejte, co jsme postavili.",
+    home: "Zpět na hlavní",
+    projects: "Naše projekty",
   },
 };
 
