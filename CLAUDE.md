@@ -85,4 +85,4 @@ Rationale: AI has pushed the market floor down and sped up production, but custo
 The studio's own reusable CMS for **Astro** client sites (separate repo at `Desktop/mySTCH`, lives at `/cms` on each client site). One shared password, content as versioned YAML in git, draft→publish (1 commit = 1 rebuild), no database, no vendor lock-in. Per-client config in `src/cms/config.ts`; field types in `docs/FIELDS.md`. Already live for one client. The `Cms.jsx` section sells it ("web si spravujete sami"); its preview image is a **placeholder awaiting a real admin screenshot**.
 
 ### Portfolio (`projectsData.js`)
-Three real client projects only (JML Mont, Bar Praha, Octagon Třebíč). The `caseStudy.results` field exists but is intentionally empty — real client testimonials/metrics still to be collected (biggest trust lever).
+Real client projects only (Run Club Znaim, Štěpán Mareš, Octagon Třebíč, Bar Praha, JML Mont). When adding a project, also add its CS + EN URLs to `public/sitemap.xml`. The `caseStudy.results` field exists but is intentionally empty — real client testimonials/metrics still to be collected (biggest trust lever).

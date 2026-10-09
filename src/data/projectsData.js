@@ -2,6 +2,7 @@ import Img1 from "../assets/jmlmont.webp";
 import Img4 from "../assets/octagontrebic.webp";
 import Img5 from "../assets/barpraha.webp";
 import Img6 from "../assets/runclubznaim.webp";
+import Img7 from "../assets/stepanmares.webp";
 import Runclub1 from "../assets/runclub-admin.webp";
 import Runclub2 from "../assets/runclub-plakat.webp";
 import Runclub3 from "../assets/runclub-mobil.webp";
@@ -84,6 +85,36 @@ export const projects = [
           },
         },
       ],
+    },
+  },
+  {
+    slug: "stepan-mares",
+    featured: true,
+    image: Img7,
+    year: "2026",
+    link: "https://www.stepanmares.cz",
+    title: { cs: "Štěpán Mareš", en: "Štěpán Mareš" },
+    category: { cs: "Web a dlouhodobá spolupráce", en: "Website & ongoing partnership" },
+    description: {
+      cs: "Web kreslíře a karikaturisty, autora Zeleného Raoula. Po spuštění se dál staráme o všechno digitální — včetně animací jeho kreseb.",
+      en: "A website for the cartoonist and caricaturist behind Zelený Raoul. Since launch we've kept looking after everything digital — including animating his drawings.",
+    },
+    caseStudy: {
+      client: "Štěpán Mareš",
+      timeline: { cs: "týden + dlouhodobě", en: "1 week + ongoing" },
+      techStack: ["Astro", "Vercel"],
+      tagline: {
+        cs: "Web, na kterém hlavní slovo má kresba — a spolupráce, která spuštěním webu teprve začala.",
+        en: "A website where the drawings do the talking — and a partnership that only started with the launch.",
+      },
+      challenge: {
+        cs: "Štěpán Mareš sedmadvacet let kreslil každý týden Zeleného Raoula, dnes maluje a kresbou komentuje aktuální dění. Za tu dobu vzniklo 1 422 dílů komiksu a k tomu obrazy, ilustrace a karikatury — jenže nebylo jedno místo, kde by si je lidé mohli v klidu prohlédnout a kde by se mu mohli ozvat galerie, pořadatelé výstav nebo zájemci o obraz či karikaturu na zakázku.",
+        en: "For twenty-seven years Štěpán Mareš drew Zelený Raoul every week; today he paints and comments on current events through his drawings. That adds up to 1,422 comic episodes plus paintings, illustrations and caricatures — but there was no single place where people could browse them calmly, and where galleries, exhibition organisers or anyone wanting a painting or a commissioned caricature could get in touch.",
+      },
+      approach: {
+        cs: "Postavili jsme čistý, klidný web, který kresbě nepřekáží: výběr díla, archiv Zeleného Raoula i volné tvorby, přehled výstav a jednoduchý kontakt. Hotovo bylo za týden. Tím ale spolupráce neskončila — dál se staráme o všechno, co se týká digitálu. Když Štěpán nakreslí nový vtip, uděláme z něj krátkou animaci, ve které obrázek vzniká tah po tahu, jako by se kreslil přímo před očima.",
+        en: "We built a clean, calm website that stays out of the drawings' way: selected works, an archive of Zelený Raoul and his free work, an exhibitions overview and a simple contact. It was done in a week. But that wasn't the end — we keep looking after everything digital. When Štěpán draws a new cartoon, we turn it into a short animation where the picture appears stroke by stroke, as if it were being drawn right in front of you.",
+      },
     },
   },
   {
