@@ -149,7 +149,6 @@ export const projects = [
   },
   {
     slug: "bar-praha",
-    featured: true,
     image: Img5,
     year: "2026",
     link: "https://barpraha-znojmo.cz/",
