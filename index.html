@@ -21,18 +21,19 @@
     <meta property="og:site_name" content="STCH Studio" />
 
 
-    <!-- Theme init — prevents FOUC by setting class before paint -->
+    <!-- Theme init — prevents FOUC by setting class before paint.
+         Klic musi sedet se STORAGE_KEY v src/utils/theme.js. -->
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem("stch-theme");
-          var theme = stored === "light" || stored === "dark" ? stored : "dark";
+          var stored = localStorage.getItem("stch-theme-v2");
+          var theme = stored === "light" || stored === "dark" ? stored : "light";
           if (theme === "dark") {
             document.documentElement.classList.add("dark");
           }
           document.documentElement.style.colorScheme = theme;
         } catch (e) {
-          document.documentElement.classList.add("dark");
+          document.documentElement.style.colorScheme = "light";
         }
       })();
     </script>
